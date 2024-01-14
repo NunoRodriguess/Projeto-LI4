@@ -19,6 +19,9 @@ namespace BirdBoxFull.Shared
         public string localidade { get; set; }
         public string codigoPostal { get; set; }
         public string cc { get; set; }
+        public List<Licitacao> Licitacoes { get; set; }
+        public List<Encomenda> Encomendas { get; set; }
+        public List<WishList> WishLists { get; set; }
 
         /*
         ALTER TABLE Utilizador

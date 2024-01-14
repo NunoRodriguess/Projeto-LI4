@@ -7,31 +7,13 @@ namespace BirdBoxFull.Shared
     {
         [Key]
         public string codLicitacao { get; set; }
-        public string codLeilao { get; set; }
-        public string codUtilizador { get; set; }
+        public string LeilaoCodLeilao { get; set; }
+        public Leilao Leilao { get; set; }
+        public string UtilizadorUsername { get; set; }
+        public Utilizador Utilizador {  get; set; }
         public float valor { get; set; }
         public DateTime timestamp { get; set; }
 
-        public Licitacao(string codLicitacao, string codLeilao, string codUtilizador, float valor, DateTime timestamp)
-        {
-            this.codLicitacao = codLicitacao;
-            this.codLeilao = codLeilao;
-            this.codUtilizador = codUtilizador;
-            this.valor = valor;
-            this.timestamp = timestamp;
-        }
-
-
-        public override string ToString()
-        {
-            return "Licitacao{" +
-                   "codLicitacao='" + codLicitacao + '\'' +
-                   ", codLeilao='" + codLeilao + '\'' +
-                   ", codUtilizador='" + codUtilizador + '\'' +
-                   ", valor=" + valor +
-                   ", timestamp=" + timestamp +
-                   '}';
-        }
 
     }
 

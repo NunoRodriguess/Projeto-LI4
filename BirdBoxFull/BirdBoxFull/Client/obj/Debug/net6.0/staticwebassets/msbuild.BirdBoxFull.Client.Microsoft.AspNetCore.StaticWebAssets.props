@@ -345,7 +345,7 @@
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Alternative</AssetRole>
-      <RelatedAsset>D:\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js</RelatedAsset>
+      <RelatedAsset>D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js</RelatedAsset>
       <AssetTraitName>Content-Encoding</AssetTraitName>
       <AssetTraitValue>gzip</AssetTraitValue>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

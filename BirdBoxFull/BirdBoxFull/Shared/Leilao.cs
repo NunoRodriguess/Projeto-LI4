@@ -2,22 +2,32 @@ using BirdBoxFull.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Leilao
 {
     [Key]
     public string CodLeilao { get; set; }
     public string UtilizadorUsername { get; set; }
+    public Utilizador Utilizador { get; set; }
     public string Descricao { get; set; }
     public float ValorMinimo { get; set; }
     public string Relatorio { get; set; }
     public string Estado { get; set; }
+
+    [NotMapped]
     public List<string> Images { get; set; }
     public string Name { get; set; }
     public decimal EntryPrice { get; set; }
     public string Location { get; set; }
     public bool IsPublic { get; set; }
     public DateTime DataFinal { get; set; }
+    public List<Licitacao> Licitacoes { get; set; }
+    public Encomenda? Encomenda { get; set; }
+
+    public List<WishList> WishLists { get; set; }
+
+    public List<Utilizador> Utilizadores { get; set; }
 
     // Parameterized constructor
     public Leilao(string codLeilao, string codUtilizador, string descricao,

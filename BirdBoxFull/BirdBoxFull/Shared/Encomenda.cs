@@ -5,15 +5,17 @@ public class Encomenda
 {
     [Key]
     public string codEncomenda { get; set; }
-    public string codLeilao { get; set; }
-    public string codUtilizador { get; set; }
+    public string LeilaoCodLeilao { get; set; }
+    public Leilao Leilao { get; set; }
+    public string UtilizadorUsername { get; set; }
+    public Utilizador Utilizador { get; set; }
     public string numeroSeguimento { get; set; }
 
-    public Encomenda(string codEncomenda, string codLeilao,string codUtilizador, string numeroSeguimento)
+    public Encomenda(string codEncomenda, string LeilaoCodLeilao, string UtilizadorUsername, string numeroSeguimento)
     {
         this.codEncomenda = codEncomenda;
-        this.codLeilao = codLeilao;
-        this.codUtilizador = codUtilizador;
+        this.LeilaoCodLeilao = LeilaoCodLeilao;
+        this.UtilizadorUsername = UtilizadorUsername;
         this.numeroSeguimento = numeroSeguimento;
     }
 
