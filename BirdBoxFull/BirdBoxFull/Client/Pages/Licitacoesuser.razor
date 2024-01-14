@@ -1,0 +1,25 @@
+@page "/userlicitacoes"
+<PageTitle>Meu Perfil @userId</PageTitle>
+<MainLayout></MainLayout>
+<NavMenu></NavMenu>
+
+<div class="d-flex flex-column flex-md-row">
+    <div class="flex-grow-1 mb-3 mb-md-0">
+        <FourButtons></FourButtons>
+        
+    </div>
+    <div>
+        <FilterBarShort Title="Licitações Ativas"></FilterBarShort>
+        
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string userId { get; set; }
+
+    // You can use productId to fetch and display product details
+    // For instance, fetch product details based on productId from your data source
+}
+
+

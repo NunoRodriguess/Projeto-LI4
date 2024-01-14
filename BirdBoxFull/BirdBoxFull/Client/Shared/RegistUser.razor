@@ -1,0 +1,42 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="navbar-logo"><a href="login"><img src="logof.png" alt="Logo" /></a></div>
+<form class="form-flex"> 
+    <div class="form-group">
+        <input type="username" class="form-control" id="oneUsername" aria-describedby="usernameHelp" placeholder="Username:">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="onePassword" placeholder="Password:">
+    </div>
+    <div class="form-group">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email:">
+  </div>
+  <div class="form-group-cont">
+    <input type="rua" class="form-control-cont-in" id="oneRua" placeholder="Indicativo:">
+    <input type="rua" class="form-control-cont-cont" id="oneRua" placeholder="Contacto:">
+    <input type="rua" class="form-control-cont-id" id="oneRua" placeholder="Identificação:">
+  </div>
+  <div class="form-group">
+    <input type="nome" class="form-control" id="oneNme" placeholder="Nome:">
+  </div>
+  <div class="form-group">
+    <input type="rua" class="form-control-morada" id="oneRua" placeholder="Rua:">
+    <input type="n-porta" class="form-control-morada" id="oneNacionalidade" placeholder="Nacionalidade:">
+  </div>
+  <div class="form-group">
+    <input type="n-porta" class="form-control-morada" id="oneNporta" placeholder="NºPorta:">
+    <input type="n-porta" class="form-control-morada" id="oneCidade" placeholder="Cidade:">
+  </div>
+  <div class="form-group">
+    <input type="codigo-postal" class="form-control-morada" id="oneNporta" placeholder="Código Postal:">
+    <button type="codigo-postal" class="form-control-pagamento" id="onePagamento">Método de Pagamento ↓</button>
+  </div>
+  
+    <div class="button-container"> <!-- Create a container for buttons -->
+        <button type="submit" class="btn btn-dark log-button">Enviar Registo</button>
+    
+    </div>
+    
+</form>
+

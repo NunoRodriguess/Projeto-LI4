@@ -1,0 +1,44 @@
+﻿@inherits Microsoft.AspNetCore.Components.ComponentBase
+
+<div class="card">
+    <div class="row no-gutters">
+        <div class="col-md-9">
+            <div class="d-flex flex-column">
+                
+                    @for (int i = 1; i < Leilao.Images.Count; i++)
+                    {
+                        <div class="card-img-small">
+                            <img class="img-thumbnail mb-2" src="@Leilao.Images[i]" alt="Image" @onclick="(() => SwapImages(i))">
+                         </div>
+                    }
+                
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-body">
+                <div class="card-img-big">
+                    <img class="img-thumbnail mb-2" src="@Leilao.Images[0]" alt="Big Image" @onclick="(() => SwapImages(0))">
+                </div>
+                <p class="card-title">@Leilao.Name</p>
+                <p class="card-text">Entrada: @Leilao.ValorMinimo €</p>
+                <p class="card-text">Timer: @Leilao.DataFinal</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Leilao Leilao { get; set; }
+
+    private void SwapImages(int clickedImageIndex)
+    {
+        // Swap the clicked smaller image with the larger one
+        if (Leilao.Images.Count > 1 && clickedImageIndex < Leilao.Images.Count)
+        {
+            var temp = Leilao.Images[0];
+            Leilao.Images[0] = Leilao.Images[clickedImageIndex];
+            Leilao.Images[clickedImageIndex] = temp;
+        }
+    }
+}

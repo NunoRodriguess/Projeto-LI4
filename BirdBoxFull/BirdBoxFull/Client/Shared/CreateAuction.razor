@@ -1,0 +1,17 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<form class="form-flex"> 
+    <div class="form-group">
+        <input type="categorias" class="form-categorias" id="oneCategoria" placeholder="Categorias">
+        <input type="dataInicio" class="form-control" id="dataInicio" placeholder="Data de Início">
+        <input type="tempoLeilao" class="form-control" id="tempoLeilao" placeholder="Tempo de Leilão">
+        <input type="valorMinimo" class="form-control" id="valorMinimo" placeholder="Valor Mínimo">
+        <input type="contacto" class="form-control" id="contacto" placeholder="Método de contacto preferencial">
+        <button type="codigo-postal" class="form-pagamento" id="onePagamento">Método de Pagamento ↓</button>
+    </div>
+    <div class="button-group">
+    <button type="media" class="btn btn-dark button-controller-media" id="media">Adicionar Media</button>
+    <button type="autenticacao" class="btn btn-dark button-controller-autenticacao" id="autenticacao">Requisitar Autenticação</button>
+    </div>
+</form>
