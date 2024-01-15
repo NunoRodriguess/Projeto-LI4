@@ -28,5 +28,16 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
             return await _http.GetFromJsonAsync<Leilao>($"api/Leiloes/{cod}");
       
         }
+
+        public async Task UploadImages(List<LeilaoImage> images)
+        {
+            var response = await _http.PostAsJsonAsync("api/Leiloes/upload/image", images);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle the error as needed
+                // Example: throw new ApplicationException("Image upload failed");
+            }
+        }
     }
 }

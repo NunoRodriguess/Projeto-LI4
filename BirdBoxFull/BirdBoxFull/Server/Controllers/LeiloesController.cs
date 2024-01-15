@@ -1,4 +1,5 @@
 ﻿using BirdBoxFull.Server.Services.ServicoProduto;
+using BirdBoxFull.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,22 @@ namespace BirdBoxFull.Server.Controllers
             return Ok(await _productService.GetLeilao(codLeilao));
         }
 
-        
+        [HttpPost("upload/image")] // Updated route
+        public async Task<ActionResult> UploadImages(List<LeilaoImage> images)
+        {
+            try
+            {
+                // Process the request and save the images to the database using the ProductService
+                await _productService.UploadImages(images);
+
+                return Ok("Images uploaded successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
+            }
+        }
+
+
     }
 }

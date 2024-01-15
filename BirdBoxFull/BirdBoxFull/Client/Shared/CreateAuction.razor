@@ -1,5 +1,6 @@
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
+@inject IServicoProduto ServicoProduto
 
 <form class="form-flex"> 
     <div class="form-group">
@@ -8,10 +9,53 @@
         <input type="tempoLeilao" class="form-control" id="tempoLeilao" placeholder="Tempo de Leilão">
         <input type="valorMinimo" class="form-control" id="valorMinimo" placeholder="Valor Mínimo">
         <input type="contacto" class="form-control" id="contacto" placeholder="Método de contacto preferencial">
-        <button type="codigo-postal" class="form-pagamento" id="onePagamento">Método de Pagamento ↓</button>
     </div>
     <div class="button-group">
     <button type="media" class="btn btn-dark button-controller-media" id="media">Adicionar Media</button>
     <button type="autenticacao" class="btn btn-dark button-controller-autenticacao" id="autenticacao">Requisitar Autenticação</button>
     </div>
 </form>
+
+<h3>Image Upload</h3>
+
+<InputFile OnChange="HandleFileChange" multiple accept="image/*" />
+
+@foreach (var image in imageUrls)
+{
+        <img src="@image" alt="Uploaded Image" />
+}
+
+<button @onclick="UploadImages">Upload Images</button>
+
+@code {
+    private List<string> imageUrls = new List<string>();
+
+    private async Task HandleFileChange(InputFileChangeEventArgs e)
+    {
+        imageUrls.Clear(); // Clear existing images
+
+        var files = e.GetMultipleFiles().Take(4); // Limit to 4 files
+        foreach (var imageFile in files)
+        {
+            var buffer = new byte[imageFile.Size];
+            await imageFile.OpenReadStream().ReadAsync(buffer);
+            var imageUrl = $"data:{imageFile.ContentType};base64,{Convert.ToBase64String(buffer)}";
+            imageUrls.Add(imageUrl);
+        }
+    }
+
+    private async Task UploadImages()
+    {
+        // Send the imageUrls and productId to the server
+        // This can be done using a service or HTTP client
+        // Example:
+        var leilaoCodLeilao = "your_leilao_cod"; // Replace with the actual Leilao CodLeilao
+        var images = imageUrls.Select(url => new LeilaoImage { ImageUrl = url, LeilaoCodLeilao = leilaoCodLeilao }).ToList();
+
+        // Assuming you have a service for handling image uploads
+        await ServicoProduto.UploadImages(images); // Assuming 'servicoProduto' is your IServicoProduto instance
+
+        // Optionally, clear the imageUrls list after uploading
+        imageUrls.Clear();
+    }
+}

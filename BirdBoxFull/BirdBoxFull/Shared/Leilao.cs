@@ -7,11 +7,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class Leilao
 {
     [Key]
-    public string CodLeilao { get; set; }
+    public string CodLeilao { get; set; } = Guid.NewGuid().ToString();
     public string UtilizadorUsername { get; set; }
     public Utilizador Utilizador { get; set; }
     public string Descricao { get; set; }
-    public float ValorMinimo { get; set; }
     public string Relatorio { get; set; }
     public string Estado { get; set; }
 
@@ -29,13 +28,12 @@ public class Leilao
 
     // Parameterized constructor
     public Leilao(string codLeilao, string codUtilizador, string descricao,
-                  float valorMinimo, string relatorio, string estado,
+                  string relatorio, string estado,
                   List<string> images, string name, decimal entryPrice, string location, bool isPublic, DateTime dataFinal)
     {
         CodLeilao = codLeilao;
         UtilizadorUsername = codUtilizador;
         Descricao = descricao;
-        ValorMinimo = valorMinimo;
         Relatorio = relatorio;
         Estado = estado;
         Images = images;

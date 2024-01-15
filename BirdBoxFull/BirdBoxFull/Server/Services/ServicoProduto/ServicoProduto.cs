@@ -1,5 +1,6 @@
 ﻿using BirdBoxFull.Server.Data;
 using BirdBoxFull.Shared;
+using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
 
 namespace BirdBoxFull.Server.Services.ServicoProduto
@@ -77,6 +78,17 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
         public async Task AddLeilao(Leilao leilao)
         {
             _context.Leiloes.Add(leilao);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UploadImages(List<LeilaoImage> images)
+        {
+            foreach (var image in images)
+            {
+                // You can customize this logic based on your database structure and relationships
+                _context.LeilaoImages.Add(image);
+            }
+
             await _context.SaveChangesAsync();
         }
     }

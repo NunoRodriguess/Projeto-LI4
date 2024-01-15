@@ -1,5 +1,6 @@
 ﻿using BirdBoxFull.Client.Pages;
 using BirdBoxFull.Shared;
+using static System.Net.WebRequestMethods;
 
 namespace BirdBoxFull.Client.Services.ServicoProduto
 {
@@ -8,5 +9,7 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 		List<Leilao> Leiloes { get; set; }
 		Task loadLeiloes();
         Task<Leilao> loadLeilao(string cod);
+
+		Task UploadImages(List<LeilaoImage> images);
     }
 }
