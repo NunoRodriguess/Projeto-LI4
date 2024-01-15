@@ -63,8 +63,13 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 if (existingUser != null)
                 {
                     // Update user properties
-                    existingUser.Password = updatedUser.Password;
-                    existingUser.dataNascimento = updatedUser.dataNascimento;
+                    existingUser.Nome = updatedUser.Nome;
+                    existingUser.email = updatedUser.email;
+                    existingUser.numeroTelemovel = updatedUser.numeroTelemovel;
+                    existingUser.localidade = updatedUser.localidade;
+                    existingUser.rua = updatedUser.rua;
+                    existingUser.numeroPorta = updatedUser.numeroPorta;
+                    existingUser.codigoPostal = updatedUser.codigoPostal;
                     // Update other properties as needed
 
                     await _context.SaveChangesAsync();
