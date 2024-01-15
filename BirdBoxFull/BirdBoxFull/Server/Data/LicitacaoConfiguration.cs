@@ -19,6 +19,8 @@ namespace BirdBoxFull.Server.Data
                 .HasForeignKey(l => l.LeilaoCodLeilao)
                 .OnDelete(DeleteBehavior.NoAction);  // Specify the appropriate behavior for Leilao relationship
 
+            builder.Property(e => e.codLicitacao).HasDefaultValue("NEWID()");
+
             // Other configurations...
         }
     }

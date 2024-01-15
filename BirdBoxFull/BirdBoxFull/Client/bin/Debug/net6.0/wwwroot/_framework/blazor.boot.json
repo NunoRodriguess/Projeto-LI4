@@ -7,8 +7,11 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazored.LocalStorage.dll": "sha256-w2vMoqbIgF9UyzKqfDFXjqgg7IsGRHDvzb6DcyaPW6s=",
+      "Blazored.Toast.dll": "sha256-GXXa2A08YD6PhpIFoBX+kgnsZS1fcddkt\/Sv5IUHdz8=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-MLKzvYNIHKFX9v72NDxI+Ng3W\/pu1M\/vuyU7rTIe+k8=",
       "Microsoft.AspNetCore.Components.dll": "sha256-4KC894X5OekvnwX7N+NNaRXsWz\/c+W8HnLubh8gjmBM=",
+      "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-xFA5Y1Ae9hdfJ\/DomalGid8VKJxIYsZ\/cQmd09HJwuA=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-7ePmaCW7I5d90dlS3n4Wls\/gdGmoq22zlo+VbsJvB7o=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-0ZI4LHMjoT7kziqMdK78\/Y\/hNOIkEcPGRvp5sz5F4JU=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-VlvpDDA4R\/9rp2jt0Ur\/Dh+MhWAoTbn1Y8KXtyEsNpQ=",
@@ -196,15 +199,15 @@
       "mscorlib.dll": "sha256-R1JlsouwIAVx0f4j8Ku8nSgx9UWnoKc26EJSnZko6MY=",
       "netstandard.dll": "sha256-8Ej3VOdrj8ijDcTS0\/1AEMpisaFDe3Nmj0Fbq5sfZEk=",
       "System.Private.CoreLib.dll": "sha256-tqFypIfntE2p16olQ2cI4rklqWNJqsPJvAoPSChg0H0=",
-      "BirdBoxFull.Shared.dll": "sha256-v1HPRtDT1q9xpsoQEt1hrypS2rGGQtVRpkl7ucYbim8=",
-      "BirdBoxFull.Client.dll": "sha256-r4ge1A3mr0kWyZH27+VbJDgvNdVSsNqEay9fibrmyhY="
+      "BirdBoxFull.Shared.dll": "sha256-TG5XpWWzfvi6sTXdL3Qqwv2umeoxsoFwLEc08+L6IiQ=",
+      "BirdBoxFull.Client.dll": "sha256-NDprdBGCTClJ0h1Bf9GrYEPanhO3CGEBnaUBfWX1oGI="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "BirdBoxFull.Shared.pdb": "sha256-anTomFEeEm7SovRnOWclWRGU9IeehYDeomODPLJOkiY=",
-      "BirdBoxFull.Client.pdb": "sha256-OeUnMFG6I25tmi\/LWa5M66fflXjbx8pr5yjelRRHTPU="
+      "BirdBoxFull.Shared.pdb": "sha256-iwC3dyXxnSTodb\/cgnvIDbjewQHiAXeLyljdJHQGYpk=",
+      "BirdBoxFull.Client.pdb": "sha256-BZ7HNLp9FUod4x2ZOiw9l5jXtN2tBg2aTnOHd4mB8J8="
     },
     "runtime": {
       "dotnet.6.0.18.h2uhypalz0.js": "sha256-Iww31ANFa3KZuR4RkhiSYt3FJ7PKpMdeFNq3l3Td1h8=",

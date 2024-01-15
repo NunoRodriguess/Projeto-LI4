@@ -174,3 +174,11 @@ D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\obj\Debug\net6.0\refint\Bir
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\obj\Debug\net6.0\BirdBoxFull.Server.pdb
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\obj\Debug\net6.0\BirdBoxFull.Server.genruntimeconfig.cache
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\obj\Debug\net6.0\ref\BirdBoxFull.Server.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Blazored.LocalStorage.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Blazored.Toast.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Server\obj\Debug\net6.0\BirdBoxFull.Server.MvcApplicationPartsAssemblyInfo.cs

@@ -1,3 +1,5 @@
+@import '_content/Blazored.Toast/Blazored.Toast.bundle.scp.css';
+
 /* /Pages/Licitacoesuser.razor.rz.scp.css */
 @media (max-width: 768px) {
     .flex-column-reverse[b-ox32v6darb] {

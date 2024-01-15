@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7OeUky12nAcWX2sebtwvTTc+4EF9zT/Lf6Npi9Huq8U=",
+  "Hash": "USQmsiGnebmiUJL7Gxsodf1ZClWX9uVHT6gAgY9hXtE=",
   "Source": "BirdBoxFull.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\jonug\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\Blazored.Toast.bundle.scp.css",
+      "SourceId": "Blazored.Toast",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\jonug\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Toast",
+      "RelativePath": "Blazored.Toast.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\Blazored.Toast.bundle.scp.css"
+    },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BirdBoxFull.Client.dll",
       "SourceId": "BirdBoxFull.Client",
@@ -119,6 +136,40 @@
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.24\\build\\net6.0\\blazor.webassembly.js"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.LocalStorage.dll",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\blazored.localstorage\\4.4.0\\lib\\net6.0\\Blazored.LocalStorage.dll"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.Toast.dll",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.Toast.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\blazored.toast\\4.1.0\\lib\\net6.0\\Blazored.Toast.dll"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\dotnet.6.0.18.h2uhypalz0.js",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Computed",
@@ -168,6 +219,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\dotnet.wasm"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt.dat",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "native",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\icudt.dat"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt_CJK.dat",
@@ -221,23 +289,6 @@
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
     },
     {
-      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
-      "SourceId": "BirdBoxFull.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt.dat",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "native",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\icudt.dat"
-    },
-    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Computed",
@@ -253,6 +304,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.24\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.dll",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\6.0.22\\lib\\net6.0\\Microsoft.AspNetCore.Components.Authorization.dll"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
@@ -4896,6 +4964,23 @@
       "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Formats.Asn1.dll"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\H69Xejgq.gz",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.dll"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\H7MphjVY.gz",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Computed",
@@ -5098,6 +5183,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\j6RfGgTq.gz",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.LocalStorage.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.LocalStorage.dll"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\JD+GfHPd.gz",
@@ -6596,6 +6698,23 @@
       "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.IsolatedStorage.dll"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\XfULiOoy.gz",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.Toast.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.Toast.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.Toast.dll"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\xhcl3PLe.gz",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Computed",
@@ -6953,23 +7072,6 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "BirdBoxFull.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Discovered",
@@ -7070,6 +7172,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",

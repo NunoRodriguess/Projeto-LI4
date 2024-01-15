@@ -13,6 +13,7 @@ namespace BirdBoxFull.Server.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new LeilaoConfiguration());
             modelBuilder.ApplyConfiguration(new LicitacaoConfiguration());
             modelBuilder.ApplyConfiguration(new EncomendaConfiguration());
             modelBuilder.ApplyConfiguration(new WishListConfiguration());

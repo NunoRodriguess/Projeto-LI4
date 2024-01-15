@@ -25,7 +25,9 @@ namespace BirdBoxFull.Server.Migrations
             modelBuilder.Entity("BirdBoxFull.Shared.Encomenda", b =>
                 {
                     b.Property<string>("codEncomenda")
-                        .HasColumnType("nvarchar(450)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)")
+                        .HasDefaultValue("NEWID()");
 
                     b.Property<string>("LeilaoCodLeilao")
                         .IsRequired()
@@ -75,7 +77,9 @@ namespace BirdBoxFull.Server.Migrations
             modelBuilder.Entity("BirdBoxFull.Shared.Licitacao", b =>
                 {
                     b.Property<string>("codLicitacao")
-                        .HasColumnType("nvarchar(450)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)")
+                        .HasDefaultValue("NEWID()");
 
                     b.Property<string>("LeilaoCodLeilao")
                         .IsRequired()
@@ -84,6 +88,9 @@ namespace BirdBoxFull.Server.Migrations
                     b.Property<string>("UtilizadorUsername")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("isWinner")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("timestamp")
                         .HasColumnType("datetime2");
@@ -105,8 +112,9 @@ namespace BirdBoxFull.Server.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LeilaoCodLeilao")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -135,10 +143,6 @@ namespace BirdBoxFull.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("metodoPagamento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("numeroPorta")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -152,8 +156,6 @@ namespace BirdBoxFull.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Username");
-
-                    b.HasIndex("LeilaoCodLeilao");
 
                     b.ToTable("Utilizadores");
                 });
@@ -176,7 +178,9 @@ namespace BirdBoxFull.Server.Migrations
             modelBuilder.Entity("Leilao", b =>
                 {
                     b.Property<string>("CodLeilao")
-                        .HasColumnType("nvarchar(450)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)")
+                        .HasDefaultValue("NEWID()");
 
                     b.Property<DateTime>("DataFinal")
                         .HasColumnType("datetime2");
@@ -270,13 +274,6 @@ namespace BirdBoxFull.Server.Migrations
                     b.Navigation("Utilizador");
                 });
 
-            modelBuilder.Entity("BirdBoxFull.Shared.Utilizador", b =>
-                {
-                    b.HasOne("Leilao", null)
-                        .WithMany("Utilizadores")
-                        .HasForeignKey("LeilaoCodLeilao");
-                });
-
             modelBuilder.Entity("BirdBoxFull.Shared.WishList", b =>
                 {
                     b.HasOne("Leilao", "Leilao")
@@ -321,8 +318,6 @@ namespace BirdBoxFull.Server.Migrations
                     b.Navigation("Encomenda");
 
                     b.Navigation("Licitacoes");
-
-                    b.Navigation("Utilizadores");
 
                     b.Navigation("WishLists");
                 });

@@ -1678,3 +1678,15 @@ D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\BirdBoxFul
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\refint\BirdBoxFull.Client.dll
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\BirdBoxFull.Client.pdb
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\ref\BirdBoxFull.Client.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Blazored.Toast.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Blazored.Toast.dll.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\Blazored.LocalStorage.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\Blazored.Toast.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\j6RfGgTq.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\XfULiOoy.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\H69Xejgq.gz

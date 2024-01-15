@@ -16,7 +16,7 @@ public class Leilao
     public string Estado { get; set; }
 
     [NotMapped]
-    public List<string> Images { get; set; }
+    public List<string> Images { get; set; } = new List<string>();
     public string Name { get; set; }
     public decimal EntryPrice { get; set; }
     public string Location { get; set; }
@@ -26,8 +26,6 @@ public class Leilao
     public Encomenda? Encomenda { get; set; }
 
     public List<WishList> WishLists { get; set; }
-
-    public List<Utilizador> Utilizadores { get; set; }
 
     // Parameterized constructor
     public Leilao(string codLeilao, string codUtilizador, string descricao,

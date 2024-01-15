@@ -14,6 +14,8 @@ namespace BirdBoxFull.Server.Data
                 .WithMany(u => u.Encomendas)
                 .HasForeignKey(e => e.UtilizadorUsername)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(e => e.codEncomenda).HasDefaultValue("NEWID()");
             // Other configurations...
         }
     }
