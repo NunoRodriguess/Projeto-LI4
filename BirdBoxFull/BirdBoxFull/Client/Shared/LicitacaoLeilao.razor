@@ -1,0 +1,21 @@
+﻿@inherits Microsoft.AspNetCore.Components.ComponentBase
+
+<h1>Descrição</h1>
+
+<h2>Descrição:@Leilao.Descricao</h2>
+@if (Leilao.Relatorio.Equals("nada"))
+{
+    <h3>Descrição:@Leilao.Descricao</h3>
+}
+else
+{
+    
+
+}
+
+
+@code {
+    [Parameter]
+    public Leilao Leilao { get; set; }
+
+}

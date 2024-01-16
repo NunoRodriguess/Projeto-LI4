@@ -12,7 +12,17 @@
 }
 else
 {
-        <CardLeilao Leilao="@product" />
+            <div class="d-flex flex-column flex-md-row">
+        <div class="flex-grow-1 mb-3 mb-md-0">
+                <CardLeilao Leilao="@product" />
+
+        </div>
+        <div>
+                <LicitacaoLeilao Leilao="@product" />
+
+        </div>
+    </div>
+       
 }
 
 @code {

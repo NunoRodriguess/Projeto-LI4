@@ -9,10 +9,12 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
     public class ServicoUtilizador : IServicoUtilizador
     {
         private readonly DataContext _context;
+        private readonly IPagamentos _pagamentos;
 
         public ServicoUtilizador(DataContext dataContext)
         {
             _context = dataContext;
+            _pagamentos = new Pagamentos();
         }
 
         public async Task<Utilizador> GetUtilizador(string Username, string Password)
@@ -34,11 +36,11 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         public async Task AddUtilizador(Utilizador newUtilizador)
         {
-            
+            newUtilizador.StripeId = _pagamentos.CreateCustomerStripeAccount(newUtilizador);
             var user = await _context.Utilizadores
                 .FirstOrDefaultAsync(u => u.Username.Equals(newUtilizador.Username));
 
-          
+
             if (user != null)
             {
                 throw new InvalidOperationException("Username is already taken");
@@ -71,7 +73,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                     existingUser.numeroPorta = updatedUser.numeroPorta;
                     existingUser.codigoPostal = updatedUser.codigoPostal;
                     // Update other properties as needed
-
+                    _pagamentos.UpdateCustomerStripeAccount(existingUser.StripeId, updatedUser);
                     await _context.SaveChangesAsync();
                     return true;
                 }
