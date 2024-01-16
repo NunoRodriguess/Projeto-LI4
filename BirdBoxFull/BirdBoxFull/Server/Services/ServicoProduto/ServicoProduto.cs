@@ -52,6 +52,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         public async Task<Leilao> GetLeilao(string codLeilao)
         {
+           
             Leilao l =  await _context.Leiloes.FirstOrDefaultAsync(p => p.CodLeilao.Equals(codLeilao)).ConfigureAwait(false);
 
             string codLeilaoToFilter = l.CodLeilao; // Replace with the actual value you're looking for
@@ -119,7 +120,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             List<Leilao> final = new List<Leilao>();
 			foreach (Leilao le in l)
 			{
-                if (le.UtilizadorUsername == Username)
+                if (le.UtilizadorUsername.Equals(Username))
                 {
 					string codLeilaoToFilter = le.CodLeilao; // Replace with the actual value you're looking for
 

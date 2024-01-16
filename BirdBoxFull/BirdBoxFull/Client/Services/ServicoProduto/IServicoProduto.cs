@@ -13,5 +13,7 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 		Task UploadImages(List<LeilaoImage> images);
 
         Task AddLeilao(Leilao novoLeilao);
-    }
+
+		Task<List<Leilao>> GetLeilaoByUser(string Username);
+	}
 }

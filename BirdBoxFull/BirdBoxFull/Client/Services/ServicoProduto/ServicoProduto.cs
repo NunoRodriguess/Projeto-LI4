@@ -51,5 +51,10 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
                 // Example: throw new ApplicationException("Image upload failed");
             }
         }
-    }
+		public async Task<List<Leilao>> GetLeilaoByUser(string Username)
+        {
+            Console.WriteLine("BEEP BEEP");
+			return await _http.GetFromJsonAsync<List<Leilao>>($"api/Leiloes/user/{Username}");
+		}
+	}
 }
