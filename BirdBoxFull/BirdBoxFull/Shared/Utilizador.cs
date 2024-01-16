@@ -22,6 +22,7 @@ namespace BirdBoxFull.Shared
         public List<Licitacao> Licitacoes { get; set; }
         public List<Encomenda> Encomendas { get; set; }
         public List<WishList> WishLists { get; set; }
+        public string StripeId { get; set; }
   
 
 
@@ -61,6 +62,7 @@ namespace BirdBoxFull.Shared
             Licitacoes = new List<Licitacao>();
             Encomendas = new List<Encomenda>();
             WishLists = new List<WishList>();
+            this.StripeId = string.Empty;
 
         }
 

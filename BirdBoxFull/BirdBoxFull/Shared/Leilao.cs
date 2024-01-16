@@ -23,7 +23,6 @@ public class Leilao
     public DateTime DataFinal { get; set; }
     public List<Licitacao> Licitacoes { get; set; }
     public Encomenda? Encomenda { get; set; }
-
     public List<WishList> WishLists { get; set; }
 
     // Parameterized constructor

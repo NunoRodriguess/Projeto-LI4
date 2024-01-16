@@ -96,8 +96,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         public async Task AddLeilao(Leilao novoLeilao)
         {
-            Console.WriteLine("Beep Beep");
-            Console.WriteLine(novoLeilao.CodLeilao);
+           
 
             // Assuming novoLeilao.Utilizador is the associated Utilizador
             var existingUtilizador = await _context.Utilizadores.FindAsync(novoLeilao.Utilizador.Username);
@@ -113,6 +112,32 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             await _context.SaveChangesAsync();
         }
 
+		public async Task<List<Leilao>> GetLeilaoByUser(string Username)
+        {
 
-    }
+			List<Leilao> l = await _context.Leiloes.ToListAsync();
+            List<Leilao> final = new List<Leilao>();
+			foreach (Leilao le in l)
+			{
+                if (le.UtilizadorUsername == Username)
+                {
+					string codLeilaoToFilter = le.CodLeilao; // Replace with the actual value you're looking for
+
+					List<LeilaoImage> filteredImages = await _context.LeilaoImages
+						.Where(image => image.LeilaoCodLeilao == codLeilaoToFilter)
+						.ToListAsync();
+
+					foreach (var image in filteredImages)
+					{
+						le.Images.Add(image.ImageUrl);
+					}
+                    final.Add(le);
+
+				}
+
+			}
+			return final;
+		}
+
+	}
 }

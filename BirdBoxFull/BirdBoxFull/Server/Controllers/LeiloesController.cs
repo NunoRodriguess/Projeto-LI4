@@ -27,7 +27,14 @@ namespace BirdBoxFull.Server.Controllers
             return Ok(await _productService.GetLeilao(codLeilao));
         }
 
-        [HttpPost("upload/image")] // Updated route
+		[HttpGet("user/{Username}")]
+		public async Task<ActionResult<List<Leilao>>> GetLeilaobyUser(string Username)
+		{
+
+			return Ok(await _productService.GetLeilaoByUser(Username));
+		}
+
+		[HttpPost("upload/image")] // Updated route
         public async Task<ActionResult> UploadImages([FromBody] List<LeilaoImage> images)
         {
             try
