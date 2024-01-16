@@ -76,7 +76,7 @@ namespace BirdBoxFull.Server.Controllers
         [HttpPost("regista")]
         public async Task<IActionResult> RegistaUtilizador([FromBody] Utilizador newUtilizador)
         {
-            Console.WriteLine("Nao sei o qie passa");
+            
             if (newUtilizador == null || !ModelState.IsValid)
             {
                 return BadRequest("Invalid data");

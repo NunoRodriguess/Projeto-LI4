@@ -45,9 +45,6 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 }
 
             }
-            Console.WriteLine("Beep Beep");
-            Console.WriteLine(l);
-            Console.WriteLine(l.Count);
             return l;
            // return Leiloes;
            
@@ -75,21 +72,47 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             throw new NotImplementedException();
         }
 
-        public async Task AddLeilao(Leilao leilao)
-        {
-            _context.Leiloes.Add(leilao);
-            await _context.SaveChangesAsync();
-        }
 
         public async Task UploadImages(List<LeilaoImage> images)
         {
             foreach (var image in images)
             {
+                // Assuming Leilao associated with the LeilaoImage
+                var existingLeilao = await _context.Leiloes.FindAsync(image.LeilaoCodLeilao);
+
+                // Attach or load the Leilao
+                if (existingLeilao != null)
+                {
+                    _context.Entry(existingLeilao).State = EntityState.Unchanged;
+                    image.Leilao = existingLeilao;
+                }
+
                 // You can customize this logic based on your database structure and relationships
                 _context.LeilaoImages.Add(image);
             }
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task AddLeilao(Leilao novoLeilao)
+        {
+            Console.WriteLine("Beep Beep");
+            Console.WriteLine(novoLeilao.CodLeilao);
+
+            // Assuming novoLeilao.Utilizador is the associated Utilizador
+            var existingUtilizador = await _context.Utilizadores.FindAsync(novoLeilao.Utilizador.Username);
+
+            // Attach or load the Utilizador
+            if (existingUtilizador != null)
+            {
+                _context.Entry(existingUtilizador).State = EntityState.Unchanged;
+                novoLeilao.Utilizador = existingUtilizador;
+            }
+
+            _context.Leiloes.Add(novoLeilao);
+            await _context.SaveChangesAsync();
+        }
+
+
     }
 }

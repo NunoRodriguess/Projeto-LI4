@@ -11,5 +11,7 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         Task<Leilao> loadLeilao(string cod);
 
 		Task UploadImages(List<LeilaoImage> images);
+
+        Task AddLeilao(Leilao novoLeilao);
     }
 }

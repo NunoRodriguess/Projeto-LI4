@@ -28,7 +28,7 @@ namespace BirdBoxFull.Server.Controllers
         }
 
         [HttpPost("upload/image")] // Updated route
-        public async Task<ActionResult> UploadImages(List<LeilaoImage> images)
+        public async Task<ActionResult> UploadImages([FromBody] List<LeilaoImage> images)
         {
             try
             {
@@ -39,6 +39,25 @@ namespace BirdBoxFull.Server.Controllers
             }
             catch (Exception ex)
             {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
+            }
+        }
+
+        [HttpPost("regista")] // New action method to add a new auction
+        public async Task<ActionResult> AddLeilao([FromBody] Leilao novoLeilao)
+        {
+          
+            try
+            {
+                // Process the request and add the new auction to the database using the ProductService
+                await _productService.AddLeilao(novoLeilao);
+                
+
+                return Ok("Auction added successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Sou a ex");
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
             }
         }

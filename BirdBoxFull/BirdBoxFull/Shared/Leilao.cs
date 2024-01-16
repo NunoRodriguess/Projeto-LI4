@@ -42,8 +42,31 @@ public class Leilao
         Location = location;
         IsPublic = isPublic;
         DataFinal = dataFinal;
+        Licitacoes = new List<Licitacao>();
+        WishLists = new List<WishList>();
     }
 
+    public Leilao(string codUtilizador, string descricao,
+                  string relatorio, string estado,
+                  List<string> images, string name, decimal entryPrice, string location, bool isPublic, DateTime dataFinal) {
+
+
+        CodLeilao = Guid.NewGuid().ToString();
+        UtilizadorUsername = codUtilizador;
+        Descricao = descricao;
+        Relatorio = relatorio;
+        Estado = estado;
+        Images = images;
+        Name = name;
+        EntryPrice = entryPrice;
+        Location = location;
+        IsPublic = isPublic;
+        DataFinal = dataFinal;
+        Licitacoes = new List<Licitacao>();
+        WishLists = new List<WishList>();
+
+
+    }
     public Leilao() { }
 }
 

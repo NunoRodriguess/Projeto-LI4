@@ -39,5 +39,17 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
                 // Example: throw new ApplicationException("Image upload failed");
             }
         }
+
+        public async Task AddLeilao(Leilao novoLeilao)
+        {
+            Console.WriteLine(novoLeilao.UtilizadorUsername + " " + novoLeilao.DataFinal + " " + novoLeilao.Estado + " " + novoLeilao.CodLeilao);
+            var response = await _http.PostAsJsonAsync("api/Leiloes/regista", novoLeilao);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle the error as needed
+                // Example: throw new ApplicationException("Image upload failed");
+            }
+        }
     }
 }

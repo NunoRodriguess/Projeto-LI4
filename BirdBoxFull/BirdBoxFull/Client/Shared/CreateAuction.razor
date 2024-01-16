@@ -1,20 +1,65 @@
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 @inject IServicoProduto ServicoProduto
+@inject IServicoUtilizador ServicoUtilizador
+@inject ILocalStorageService LocalStorage
+@inject IJSRuntime JSRuntime
 
-<form class="form-flex"> 
+<EditForm Model = "l" OnSubmit="HandleSubmition">
     <div class="form-group">
-        <input type="categorias" class="form-categorias" id="oneCategoria" placeholder="Categorias">
-        <input type="dataInicio" class="form-control" id="dataInicio" placeholder="Data de Início">
-        <input type="tempoLeilao" class="form-control" id="tempoLeilao" placeholder="Tempo de Leilão">
-        <input type="valorMinimo" class="form-control" id="valorMinimo" placeholder="Valor Mínimo">
-        <input type="contacto" class="form-control" id="contacto" placeholder="Método de contacto preferencial">
+        <input type="categorias" class="form-categorias" id="oneCategoria" placeholder="Nome" @bind-value = "l.Name">
+        <input type="dataInicio" class="form-control" id="dataInicio" placeholder="Descricao"@bind-value = "l.Descricao">
+        <input type="valorMinimo" class="form-control" id="valorMinimo" placeholder="Valor Mínimo" @bind-value = "l.EntryPrice">
+        <input type="localizacao" class="form-control" id="localizacao" placeholder="Localização" @bind-value = "l.Location">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="flexCheckIndeterminate" @bind-value ="PedirValidacao">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Pedir Validação
+              </label>
+            </div>
+        @if (PedirValidacao)
+        {
+            l.Estado = "aValidar";
+            l.Relatorio = "nada";
+            l.IsPublic = false;
+        }
+        else
+        {
+            l.Estado = "aDecorrer";
+            l.Relatorio = "nada";
+            l.IsPublic = true;
+        }
+        <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @onclick="() => HandleRadioClick(1)">
+              <label class="form-check-label" for="flexRadioDefault1">
+                1 Dia
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" @onclick="() => HandleRadioClick(3)" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                3 Dias
+              </label>
+              </div>
+              <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @onclick="() => HandleRadioClick(7)">
+              <label class="form-check-label" for="flexRadioDefault1">
+                7 Dias
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" @onclick="() => HandleRadioClick(0.0833)">
+              <label class="form-check-label" for="flexRadioDefault2">
+                5 minutos
+              </label>
+            </div>
+</div>
+    
+     <div class="button-group">
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <div class="button-group">
-    <button type="media" class="btn btn-dark button-controller-media" id="media">Adicionar Media</button>
-    <button type="autenticacao" class="btn btn-dark button-controller-autenticacao" id="autenticacao">Requisitar Autenticação</button>
-    </div>
-</form>
+</EditForm>
 
 <h3>Image Upload</h3>
 
@@ -25,10 +70,94 @@
         <img src="@image" alt="Uploaded Image" />
 }
 
-<button @onclick="UploadImages">Upload Images</button>
-
 @code {
+
+    private Utilizador utilizador = new Utilizador();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve userId from LocalStorage
+        string userId = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
+
+        if (string.IsNullOrEmpty(userId))
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            string userPassword = await LocalStorage.GetItemAsync<string>("password") ?? string.Empty;
+            utilizador = await ServicoUtilizador.GetUtilizador(userId, userPassword);
+        }
+
+        // Call the base implementation
+        await base.OnInitializedAsync();
+    }
+
+
+    Leilao l = new Leilao();
+
+    bool PedirValidacao;
+
+    private double selectedDuration = 3; // Default value for 3 Dias
+
+    private void HandleRadioClick(double duration)
+    {
+        // Use the selected duration as needed
+        switch (duration)
+        {
+            case 1:
+                l.DataFinal = DateTime.Now.AddDays(1);
+                break;
+            case 3:
+                l.DataFinal = DateTime.Now.AddDays(3);
+                break;
+            case 7:
+                l.DataFinal = DateTime.Now.AddDays(7);
+                break;
+            case 0.0833:
+                l.DataFinal = DateTime.Now.AddMinutes(5);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
     private List<string> imageUrls = new List<string>();
+
+    private bool HasImages => imageUrls.Count > 0 && imageUrls.Count < 5;
+
+
+    private async Task HandleSubmition()
+    {
+        if (HasImages)
+        {
+            try
+            {
+                // Process the submission
+                Leilao novoLeilao = new Leilao(utilizador.Username, l.Descricao, l.Relatorio, l.Estado, imageUrls, l.Name, l.EntryPrice, l.Location, l.IsPublic, l.DataFinal);
+                novoLeilao.Utilizador = utilizador;
+                await ServicoProduto.AddLeilao(novoLeilao);
+                await UploadImages(novoLeilao.CodLeilao, novoLeilao);
+
+                // Navigate to the "/" page
+                await JSRuntime.InvokeVoidAsync("window.alert", "Auction added successfully");
+                NavigationManager.NavigateTo("/");
+            }
+            catch (Exception ex)
+            {
+                // Show an alert with the error message
+                await JSRuntime.InvokeVoidAsync("window.alert", "Error: " + ex.Message);
+            }
+        }
+        else
+        {
+            // Show an error message or take appropriate action
+            await JSRuntime.InvokeVoidAsync("window.alert", "Images are required.");
+        }
+    }
+
 
     private async Task HandleFileChange(InputFileChangeEventArgs e)
     {
@@ -44,13 +173,13 @@
         }
     }
 
-    private async Task UploadImages()
+    private async Task UploadImages(string idLeilao, Leilao leil)
     {
         // Send the imageUrls and productId to the server
         // This can be done using a service or HTTP client
         // Example:
-        var leilaoCodLeilao = "your_leilao_cod"; // Replace with the actual Leilao CodLeilao
-        var images = imageUrls.Select(url => new LeilaoImage { ImageUrl = url, LeilaoCodLeilao = leilaoCodLeilao }).ToList();
+        var leilaoCodLeilao = idLeilao; // Replace with the actual Leilao CodLeilao
+        var images = imageUrls.Select(url => new LeilaoImage { ImageUrl = url, LeilaoCodLeilao = leilaoCodLeilao, Leilao = leil }).ToList();
 
         // Assuming you have a service for handling image uploads
         await ServicoProduto.UploadImages(images); // Assuming 'servicoProduto' is your IServicoProduto instance
