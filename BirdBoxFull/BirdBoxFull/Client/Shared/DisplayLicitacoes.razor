@@ -21,7 +21,7 @@
                 {
                             <button class="btn btn-primary" @onclick="() => HandleButtonClickApagar(product)">Apagar Licitacao</button>
                 }
-                @if (product.isWinner == true)
+                else if (product.isWinner == true)
                 {
                             <button class="btn btn-primary" @onclick="() => HandleButtonClickPagar(product)">Fazer Pagamento</button>
                 }

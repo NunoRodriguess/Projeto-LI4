@@ -1,0 +1,41 @@
+﻿@page "/adminindex"
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
+<PageTitle>AdminPage</PageTitle>
+<MainLayout></MainLayout>
+<NavMenu></NavMenu>
+
+<div class="d-flex flex-column flex-md-row">
+    <div class="flex-grow-1 mb-3 mb-md-0">
+        <FourButtons></FourButtons>
+
+    </div>
+    <div>
+        <FilterBarShort Title="Leilões Ativos"></FilterBarShort>
+        <ListaProdutos></ListaProdutos>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string userId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve userId from LocalStorage
+        userId = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
+
+        if (string.IsNullOrEmpty(userId))
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+
+        Console.WriteLine(userId);
+
+        // Call the base implementation
+        await base.OnInitializedAsync();
+    }
+
+}
+
+

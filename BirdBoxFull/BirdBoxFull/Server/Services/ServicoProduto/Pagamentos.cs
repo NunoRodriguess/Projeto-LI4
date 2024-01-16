@@ -2,6 +2,8 @@
 using System.Drawing;
 using BirdBoxFull.Shared;
 using Stripe;
+using Stripe.Checkout;
+
 namespace BirdBoxFull.Server.Services.ServicoProduto
 {
     public class Pagamentos : IPagamentos
@@ -68,7 +70,61 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             return true;
         }
 
+        //create a SessionLineItemOptions with name, price and image
+        public SessionLineItemOptions CreateSessionLineItem(Leilao leilao, Licitacao licitacao)
+        {
+            var lineItem = new SessionLineItemOptions
+            {
+                PriceData = new SessionLineItemPriceDataOptions
+                {
+                    UnitAmount = Convert.ToInt64(licitacao.valor * 100),
+                    Currency = "eur",
+                    ProductData = new SessionLineItemPriceDataProductDataOptions
+                    {
+                        Name = leilao.Name,
+                        Images = new List<string>
+                        {
+                            leilao.Images[0]
+                        },
+                    },
+                },
+            };
+            return lineItem;
+        }
+        //create a checkout session with  customer id and products list
+        public string CreateCheckoutSession(Leilao leilao, Licitacao licitacao) // Garantir que a Licitacao tem o Utilizador direito e que o Leilao tá deireito também
+        {
+            var lineItems = new List<SessionLineItemOptions>();
+            lineItems.Add(CreateSessionLineItem(leilao, licitacao));
 
+            var options = new SessionCreateOptions
+            {
+                Customer = licitacao.Utilizador.StripeId,
+                PaymentMethodTypes = new List<string>
+            {
+                "card",
+            },
+                ExpiresAt = leilao.DataFinal.AddDays(2),
+                LineItems = lineItems,
+                Mode = "payment",
+                SuccessUrl = "https://example.com/success",
+                CancelUrl = "https://example.com/cancel",
+            };
+            var service = new SessionService();
+            var session = service.Create(options);
+            return session.Url;
+        }
+        //exprire a checkout session
+        public bool ExpireCheckoutSession(string id)
+        {
+            var service = new SessionService();
+            service.Expire(id);
+            return true;
+        }
 
     }
+
+
+
+}
 }

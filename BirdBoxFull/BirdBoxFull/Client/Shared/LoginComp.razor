@@ -43,10 +43,18 @@
         }
         else
         {
-            
+
             await LocalStorage.SetItemAsync<string>("username", user.Username);
             await LocalStorage.SetItemAsync<string>("password", user.Password);
-            NavigationManager.NavigateTo("/");
+            if (user.Username.Equals("admin"))
+            {
+                NavigationManager.NavigateTo("/adminindex");
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/");
+            }
+            
 
         }
     }
