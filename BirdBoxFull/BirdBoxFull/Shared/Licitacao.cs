@@ -15,7 +15,32 @@ namespace BirdBoxFull.Shared
         public DateTime timestamp { get; set; }
         public bool isWinner { get; set; }
 
+        public string Estado { get; set; }
+
+        public Licitacao()
+        {
+
+        }
+        public Licitacao(string LeilaoCodLeilao, Leilao Leilao, string UtilizadorUsername, Utilizador Utilizador, float valor, DateTime timestamp, bool isWinner, string Estado)
+        {
+            this.Leilao = Leilao;
+            this.LeilaoCodLeilao = LeilaoCodLeilao;
+            this.UtilizadorUsername = UtilizadorUsername;
+            this.Utilizador = Utilizador;
+            this.timestamp = timestamp;
+            this.isWinner = isWinner;
+            this.valor = valor;
+            this.codLicitacao = Guid.NewGuid().ToString();
+            this.Estado = Estado;
+
+
+        }
+      
+
+
 
     }
+
+    
 
 }

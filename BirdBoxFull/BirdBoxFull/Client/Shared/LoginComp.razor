@@ -43,10 +43,10 @@
         }
         else
         {
-            Console.WriteLine(user.Username);
+            
             await LocalStorage.SetItemAsync<string>("username", user.Username);
             await LocalStorage.SetItemAsync<string>("password", user.Password);
-            NavigationManager.NavigateTo("/#");
+            NavigationManager.NavigateTo("/");
 
         }
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UPm6vXWQV4F4qK/8HfXVyjD1kgGkvV+IhKQaZ6D4Nb4=",
+  "Hash": "USQmsiGnebmiUJL7Gxsodf1ZClWX9uVHT6gAgY9hXtE=",
   "Source": "BirdBoxFull.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -221,6 +221,23 @@
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\dotnet.wasm"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt.dat",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "native",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\icudt.dat"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt_CJK.dat",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Computed",
@@ -270,23 +287,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
-    },
-    {
-      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt.dat",
-      "SourceId": "BirdBoxFull.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt.dat",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "native",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.18\\runtimes\\browser-wasm\\native\\icudt.dat"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
@@ -7072,23 +7072,6 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "BirdBoxFull.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Discovered",
@@ -7189,6 +7172,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",

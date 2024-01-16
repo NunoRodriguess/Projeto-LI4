@@ -11,6 +11,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<IServicoProduto, ServicoProduto>();
 builder.Services.AddScoped<IServicoUtilizador, ServicoUtilizador>();
+builder.Services.AddScoped<IServicoLicitacao, ServicoLicitacao>();
 builder.Services.AddBlazoredLocalStorage();
 
 await builder.Build().RunAsync();

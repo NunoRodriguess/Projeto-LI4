@@ -17,6 +17,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IServicoProduto,ServicoProduto>();
 builder.Services.AddScoped<IServicoUtilizador,ServicoUtilizador>();
+builder.Services.AddScoped<IPagamentos, Pagamentos>();
+builder.Services.AddScoped<IServicoLicitacao, ServicoLicitacao>();
 
 var app = builder.Build();
 app.UseSwaggerUI();

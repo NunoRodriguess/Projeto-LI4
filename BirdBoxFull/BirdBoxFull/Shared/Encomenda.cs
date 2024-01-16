@@ -19,6 +19,11 @@ public class Encomenda
         this.numeroSeguimento = numeroSeguimento;
     }
 
+    public Encomenda()
+    {
+
+    }
+
 
   
 

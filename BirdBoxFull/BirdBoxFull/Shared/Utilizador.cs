@@ -9,7 +9,6 @@ namespace BirdBoxFull.Shared
         [Key]
         public string Username { get; set; }
         public string Password { get; set; }
-        public DateTime dataNascimento { get; set; }
         public string Nome { get; set; }
         public string indicativo { get; set; }
         public string numeroTelemovel { get; set; }
@@ -27,13 +26,12 @@ namespace BirdBoxFull.Shared
 
 
 
-        public Utilizador(string codUtilizador, string password, DateTime dataNascimento, string Nome,
+        public Utilizador(string codUtilizador, string password, string Nome,
                             string indicativo, string numeroTelemovel, string email, string numeroPorta,
                             string rua, string localidade, string codigoPostal, string cc)
         {
             this.Username = codUtilizador;
             this.Password = password;
-            this.dataNascimento = dataNascimento;
             this.Nome = Nome;
             this.indicativo = indicativo;
             this.numeroTelemovel = numeroTelemovel;

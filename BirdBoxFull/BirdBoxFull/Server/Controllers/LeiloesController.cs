@@ -64,7 +64,7 @@ namespace BirdBoxFull.Server.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Sou a ex");
+             
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
             }
         }

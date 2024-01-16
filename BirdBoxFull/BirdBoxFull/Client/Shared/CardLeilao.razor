@@ -4,14 +4,12 @@
     <div class="row no-gutters">
         <div class="col-md-9">
             <div class="d-flex flex-column">
-                
-                    @for (int i = 1; i < Leilao.Images.Count; i++)
-                    {
+                @for (int i = 1; i < Leilao.Images.Count; i++)
+                {
                         <div class="card-img-small">
                             <img class="img-thumbnail mb-2" src="@Leilao.Images[i]" alt="Image" @onclick="(() => SwapImages(i))">
-                         </div>
-                    }
-                
+                        </div>
+                }
             </div>
         </div>
         <div class="col-md-3">
@@ -21,7 +19,7 @@
                 </div>
                 <p class="card-title">@Leilao.Name</p>
                 <p class="card-text">Entrada: @Leilao.EntryPrice €</p>
-                <p class="card-text">Timer: @Leilao.DataFinal</p>
+                <p class="card-text">Timer: @remainingTime</p>
             </div>
         </div>
     </div>
@@ -30,6 +28,31 @@
 @code {
     [Parameter]
     public Leilao Leilao { get; set; }
+
+    private Timer timer;
+    private string remainingTime;
+
+    protected override void OnInitialized()
+    {
+        CalculateRemainingTime(this);
+        timer = new Timer(CalculateRemainingTime, null, 0, 1000);
+    }
+
+    private void CalculateRemainingTime(object state)
+    {
+        TimeSpan timeRemaining = Leilao.DataFinal - DateTime.Now;
+        if (timeRemaining.TotalSeconds > 0)
+        {
+            remainingTime = $"{(int)timeRemaining.TotalHours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
+        }
+        else
+        {
+            remainingTime = "0:00:00";
+            timer.Change(Timeout.Infinite, Timeout.Infinite); // Stop the timer
+        }
+
+        StateHasChanged();
+    }
 
     private void SwapImages(int clickedImageIndex)
     {
@@ -40,5 +63,11 @@
             Leilao.Images[0] = Leilao.Images[clickedImageIndex];
             Leilao.Images[clickedImageIndex] = temp;
         }
+    }
+
+    // Dispose the timer when the component is disposed
+    public void Dispose()
+    {
+        timer?.Dispose();
     }
 }
