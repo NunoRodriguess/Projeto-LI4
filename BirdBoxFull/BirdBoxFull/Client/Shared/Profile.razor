@@ -3,6 +3,7 @@
 @inject NavigationManager NavigationManager
 @inject IServicoUtilizador ServicoUtilizador
 
+
 <div class="containerImagem"><img src="prof.png" alt="Logo" /></div>
 <EditForm Model="Utilizador" OnValidSubmit="HandleSubmit">
     <div class="form-group">
@@ -26,6 +27,10 @@
     <button type="button" class="btn btn-dark log-button" @onclick="Logout">Logout</button>
 </div>
 
+<div class="button-container">
+    <button type="button" class="btn btn-dark log-button" @onclick="GoStripe">Aceder a conta Stripe</button>
+</div>
+
 @code {
     [Parameter]
     public Utilizador Utilizador { get; set; } = new Utilizador();
@@ -47,12 +52,21 @@
         }
     }
 
-            private async void Logout()
-        {
+    private async void Logout()
+    {
         await LocalStorage.SetItemAsync<string>("username", string.Empty);
         await LocalStorage.SetItemAsync<string>("password", string.Empty);
         NavigationManager.NavigateTo("/");
-        }
+    }
+
+    private async void GoStripe()
+    {
+        var res = await ServicoUtilizador.getStripe(Utilizador.AccountStripeId);
+        Console.WriteLine("res: " + res);
+        NavigationManager.NavigateTo(res);
+    }
+
+  
 
     
 }

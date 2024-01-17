@@ -13,10 +13,16 @@ namespace BirdBoxFull.Server.Controllers
     public class LicitacoesController : ControllerBase
     {
         private readonly IServicoLicitacao _licitacaoService;
+        private readonly IServicoProduto   _produtoService;
+        private readonly IPagamentos _pagamentosService;
+        private readonly IServicoUtilizador _userService;
 
-        public LicitacoesController(IServicoLicitacao licitacaoService)
+        public LicitacoesController(IServicoLicitacao licitacaoService, IServicoProduto produtoService, IPagamentos pagamentos, IServicoUtilizador servicoUtilizador )
         {
             _licitacaoService = licitacaoService;
+            _produtoService = produtoService;
+            _pagamentosService = pagamentos;
+            _userService = servicoUtilizador;
         }
 
         [HttpPost]
@@ -84,6 +90,25 @@ namespace BirdBoxFull.Server.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
             }
+        }
+
+        [HttpPost("pagamento")]
+        public async Task<ActionResult> AddCheckout([FromBody] Licitacao licitacao)
+        {
+            Licitacao l = await _licitacaoService.ConsultarLicitacao(licitacao.UtilizadorUsername, licitacao.LeilaoCodLeilao);
+            Console.WriteLine("Licitacao deu");
+            Leilao lei = await _produtoService.GetLeilao(l.LeilaoCodLeilao);
+            Console.WriteLine("Leilao deu");
+            Utilizador comprador = await _userService.GetUtilizadorAux(l.UtilizadorUsername);
+            Console.WriteLine("Comprador deu");
+            l.Leilao = lei;
+            l.Utilizador = comprador;
+            Utilizador Vendedor = await _userService.GetUtilizadorAux(lei.UtilizadorUsername);
+            lei.Utilizador = Vendedor;
+            var resp = _pagamentosService.Checkout(lei, l);
+
+            return Ok(resp);
+            
         }
     }
 }

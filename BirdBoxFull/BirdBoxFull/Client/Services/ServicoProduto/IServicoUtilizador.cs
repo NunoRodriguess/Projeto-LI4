@@ -9,8 +9,11 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         Task<Utilizador> GetUtilizador(string Username, string Password);
 
         Task<bool> AddUtilizador(Utilizador newUser);
+        // Task<string> AddUtilizador(Utilizador newUser);
 
         Task<bool> AlteraUtilizador(Utilizador User);
+
+        Task<string> getStripe(string stripeAccId);
 
 
     }

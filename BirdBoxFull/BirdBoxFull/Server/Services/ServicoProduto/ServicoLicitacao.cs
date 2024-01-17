@@ -12,9 +12,12 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
     {
         private readonly DataContext _context;
 
-        public ServicoLicitacao(DataContext context)
+        private readonly IPagamentos _pagamentos;
+
+        public ServicoLicitacao(DataContext context, IPagamentos pagamentos)
         {
             _context = context;
+            _pagamentos = pagamentos;
         }
 
         public async Task AddLicitacao(Licitacao newLicitacao)
@@ -68,6 +71,34 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             else
             {
                 throw new ArgumentException("Licitacao not found");
+            }
+        }
+
+        public async Task AlterarEstado(string codLicitacao, string novoEstado)
+        {
+            try
+            {
+                // Retrieve the Licitacao from the database based on codLicitacao
+                Licitacao licitacao = await _context.Licitacoes.FindAsync(codLicitacao);
+
+                if (licitacao != null)
+                {
+                    // Update the estado property
+                    licitacao.Estado = novoEstado;
+
+                    // Save the changes to the database
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    // Handle the case where the Licitacao with the provided codLicitacao is not found
+                    throw new KeyNotFoundException($"Licitacao with codLicitacao {codLicitacao} not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions if needed
+                throw new Exception($"Error updating Licitacao estado: {ex.Message}", ex);
             }
         }
     }

@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using static System.Net.WebRequestMethods;
 using System.Text.Json;
 using System.Text;
+using Stripe;
 
 namespace BirdBoxFull.Server.Controllers
 {
@@ -43,6 +44,34 @@ namespace BirdBoxFull.Server.Controllers
                 return Ok(u);
             }
         }
+
+        [HttpGet("stripe/{id}")]
+        public async Task<ActionResult<string>> GetUtilizadorStripe(string id)
+        {
+            try
+            {
+                // Create an Express account link
+                var options = new AccountLinkCreateOptions
+                {
+                    Account = id,
+                    RefreshUrl = "https://localhost:7062",
+                    ReturnUrl = "https://localhost:7062",
+                    Type = "account_onboarding",
+                };
+
+                var service = new AccountLinkService();
+                var accountLink = await service.CreateAsync(options);
+
+                return Ok(accountLink.Url);
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine($"Exception: {ex.Message}");
+                return BadRequest("Error occurred");
+            }
+        }
+
         /*
         [HttpPut("{username}")]
         public async Task<IActionResult> UpdateUtilizador(string username, [FromBody] Utilizador updatedUtilizador)

@@ -37,6 +37,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
         public async Task AddUtilizador(Utilizador newUtilizador)
         {
             newUtilizador.StripeId = _pagamentos.CreateCustomerStripeAccount(newUtilizador);
+            newUtilizador.AccountStripeId = _pagamentos.CreateCustomerAccount(newUtilizador);
             var user = await _context.Utilizadores
                 .FirstOrDefaultAsync(u => u.Username.Equals(newUtilizador.Username));
 
@@ -88,5 +89,12 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             }
         }
 
+        public async Task<Utilizador> GetUtilizadorAux(string utilizadorUsername)
+        {
+            var user = await _context.Utilizadores
+                .FirstOrDefaultAsync(u => u.Username.Equals(utilizadorUsername));
+                return user;
+          
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                     Line1 = utilizador.rua,
                     PostalCode = utilizador.codigoPostal,
                     City = utilizador.localidade,
-                    Country = "Portugal",
+                    Country = "PT",
                 },
                 PaymentMethod = "pm_card_visa",
                 InvoiceSettings = new CustomerInvoiceSettingsOptions
@@ -50,6 +50,93 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         }
 
+        public string CreateCustomerAccount(Utilizador utilizador)
+        {
+            var options = new AccountCreateOptions
+            {
+                Type = "custom",
+                Country = "PT",
+                Email = utilizador.email,
+                Capabilities = new AccountCapabilitiesOptions
+                {
+                    CardPayments = new AccountCapabilitiesCardPaymentsOptions
+                    {
+                        Requested = true,
+                    },
+                    Transfers = new AccountCapabilitiesTransfersOptions
+                    {
+                        Requested = true,
+                    },
+                },
+                BusinessType = "individual",
+                Individual = new AccountIndividualOptions
+                {
+                    FirstName = utilizador.Nome,
+                    LastName = utilizador.Nome,
+                    Email = utilizador.email,
+                    Address = new AddressOptions
+                    {
+                        Line1 = "address_full_match",
+                        PostalCode = "4590-182",
+                        City = utilizador.localidade,
+                        Country = "PT",
+                    },
+                    Dob = new DobOptions
+                    {
+                        Day = 1,
+                        Month = 1,
+                        Year = 1990,
+                    },
+                    IdNumber = "000000000",
+                    Phone = "000-000-0000",
+                },
+                BusinessProfile = new AccountBusinessProfileOptions
+                {
+                    Mcc = "5734",
+                    Url = "https://accessible.stripe.com/",
+                },
+                ExternalAccount = new AccountBankAccountOptions
+                {
+                    AccountNumber = "PT50000201231234567890154",
+                    Country = "PT",
+                    Currency = "eur",
+                    AccountHolderName = utilizador.Nome,
+                    AccountHolderType = "individual",
+                },
+                TosAcceptance = new AccountTosAcceptanceOptions
+                {
+                    Date = DateTime.Now,
+                    Ip = "8.8.8.8"
+                }
+               
+            };
+            try
+            {
+                var service = new AccountService();
+                var account = service.Create(options);
+                return account.Id;
+            }
+            catch (StripeException stripeException)
+            {
+                // Log or print the exception details for troubleshooting
+                Console.WriteLine($"Stripe Exception: {stripeException.Message}");
+
+                Console.WriteLine($"Error Type: {stripeException.StripeError.Type}");
+
+                // Handle the exception or rethrow if needed
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // Log or print the general exception details for troubleshooting
+                Console.WriteLine($"General Exception: {ex.Message}");
+
+                // Handle the exception or rethrow if needed
+                throw;
+            }
+
+        }
+
         public bool UpdateCustomerStripeAccount(string id, Utilizador updateUser)
         {
             var options = new CustomerUpdateOptions
@@ -61,7 +148,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                     Line1 = updateUser.rua,
                     PostalCode = updateUser.codigoPostal,
                     City = updateUser.localidade,
-                    Country = "Portugal",
+                    Country = "PT",
                 }
 
             };
@@ -71,6 +158,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
         }
 
         //create a SessionLineItemOptions with name, price and image
+        
         public SessionLineItemOptions CreateSessionLineItem(Leilao leilao, Licitacao licitacao)
         {
             var lineItem = new SessionLineItemOptions
@@ -82,18 +170,20 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                     ProductData = new SessionLineItemPriceDataProductDataOptions
                     {
                         Name = leilao.Name,
-                        Images = new List<string>
-                        {
-                            leilao.Images[0]
-                        },
                     },
+                   
                 },
+                Quantity = 1,
             };
             return lineItem;
         }
         //create a checkout session with  customer id and products list
-        public string CreateCheckoutSession(Leilao leilao, Licitacao licitacao) // Garantir que a Licitacao tem o Utilizador direito e que o Leilao tá deireito também
+
+        /*
+        public Stripe.Checkout.Session CreateCheckoutSession(Leilao leilao, Licitacao licitacao) // Garantir que a Licitacao tem o Utilizador direito e que o Leilao tá deireito também
         {
+            Console.WriteLine("Segundo Aqui");
+
             var lineItems = new List<SessionLineItemOptions>();
             lineItems.Add(CreateSessionLineItem(leilao, licitacao));
 
@@ -104,15 +194,18 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             {
                 "card",
             },
-                ExpiresAt = leilao.DataFinal.AddDays(2),
+                Metadata = new Dictionary<string, string> { { "codLicitacao", licitacao.codLicitacao } },
+                ExpiresAt =DateTime.Now.AddDays(0.8),
                 LineItems = lineItems,
                 Mode = "payment",
-                SuccessUrl = "https://example.com/success",
-                CancelUrl = "https://example.com/cancel",
+                SuccessUrl = "https://localhost:7062",
+                CancelUrl = "https://localhost:7062"
+                
             };
             var service = new SessionService();
             var session = service.Create(options);
-            return session.Url;
+
+            return session;
         }
         //exprire a checkout session
         public bool ExpireCheckoutSession(string id)
@@ -121,10 +214,119 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             service.Expire(id);
             return true;
         }
+        */
+        public async Task<string> Checkout(Leilao leilao,Licitacao licitacao)
+        {
+            Console.WriteLine("Primeor Aqui");
+            return CreateCheckoutSession(leilao, licitacao).Url;
+        }
+
+        
+   
+        //create shipping options
+        public List<SessionShippingOptionOptions> sessionShippingOptionOptions()
+        {
+            var shippingOptions = new List<SessionShippingOptionOptions>
+     {
+         new SessionShippingOptionOptions
+         {
+         ShippingRateData = new SessionShippingOptionShippingRateDataOptions
+         {
+             Type = "fixed_amount",
+             FixedAmount = new SessionShippingOptionShippingRateDataFixedAmountOptions
+             {
+                 Amount = 0,
+                 Currency = "eur",
+             },
+             DisplayName = "Free shipping",
+             DeliveryEstimate = new SessionShippingOptionShippingRateDataDeliveryEstimateOptions
+             {
+                 Minimum = new SessionShippingOptionShippingRateDataDeliveryEstimateMinimumOptions
+                 {
+                     Unit = "business_day",
+                     Value = 5,
+                 },
+                 Maximum = new SessionShippingOptionShippingRateDataDeliveryEstimateMaximumOptions
+                 {
+                     Unit = "business_day",
+                     Value = 7,
+                 },
+             },
+         },
+         },
+         new SessionShippingOptionOptions
+         {
+             ShippingRateData = new SessionShippingOptionShippingRateDataOptions
+             {
+                 Type = "fixed_amount",
+                 FixedAmount = new SessionShippingOptionShippingRateDataFixedAmountOptions
+                 {
+                     Amount = 1500,
+                     Currency = "eur",
+                 },
+                 DisplayName = "Next day air",
+                 DeliveryEstimate = new SessionShippingOptionShippingRateDataDeliveryEstimateOptions
+                 {
+                     Minimum = new SessionShippingOptionShippingRateDataDeliveryEstimateMinimumOptions
+                     {
+                         Unit = "business_day",
+                         Value = 1,
+                     },
+                     Maximum = new SessionShippingOptionShippingRateDataDeliveryEstimateMaximumOptions
+                     {
+                         Unit = "business_day",
+                         Value = 1,
+                     },
+                 },
+             },
+         },
+     };
+            return shippingOptions;
+        }
+        //create a checkout session with  customer id and products list
+        public Session CreateCheckoutSession(Leilao leilao, Licitacao licitacao)
+        {
+
+
+            var lineItems = new List<SessionLineItemOptions>();
+            lineItems.Add(CreateSessionLineItem(leilao, licitacao));
+
+            var options = new SessionCreateOptions
+            {
+                Customer = licitacao.Utilizador.StripeId,
+                PaymentMethodTypes = new List<string>
+         {
+             "card",
+         },
+                ShippingAddressCollection = new SessionShippingAddressCollectionOptions
+                {
+                    AllowedCountries = new List<string> { "US", "CA", "PT" },
+                },
+                ShippingOptions = sessionShippingOptionOptions(),
+                Metadata = new Dictionary<string, string> { { "codLicitacao", licitacao.codLicitacao } },
+                ExpiresAt = DateTime.Now.AddDays(0.8),
+                LineItems = lineItems,
+                Mode = "payment",
+                PaymentIntentData = new SessionPaymentIntentDataOptions
+                {
+                    ApplicationFeeAmount = Convert.ToInt64(licitacao.valor * 100 * 0.1),
+                    TransferData = new SessionPaymentIntentDataTransferDataOptions
+                    {
+                        Destination = leilao.Utilizador.AccountStripeId,
+                    },
+                },
+                SuccessUrl = "https://localhost:7062",
+                CancelUrl = "https://localhost:7062",
+
+            };
+            var service = new SessionService();
+            var session = service.Create(options);
+            return session;
+        }
+
 
     }
 
 
 
-}
 }

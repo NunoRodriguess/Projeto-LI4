@@ -113,5 +113,27 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
                 return false;
             }
         }
+
+        public async Task<string> getStripe(string stripeAccId)
+        {
+            var response = await _http.GetAsync($"api/Utilizadores/stripe/{stripeAccId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Success! Result: " + result);
+                return result;
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+                var errorText = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Error Content: " + errorText);
+                return null;
+            }
+        }
+
+
+
     }
 }

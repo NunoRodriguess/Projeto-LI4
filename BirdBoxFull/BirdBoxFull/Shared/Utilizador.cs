@@ -22,7 +22,10 @@ namespace BirdBoxFull.Shared
         public List<Encomenda> Encomendas { get; set; }
         public List<WishList> WishLists { get; set; }
         public string StripeId { get; set; }
-  
+
+        public string AccountStripeId { get; set; }
+
+
 
 
 
@@ -61,6 +64,7 @@ namespace BirdBoxFull.Shared
             Encomendas = new List<Encomenda>();
             WishLists = new List<WishList>();
             this.StripeId = string.Empty;
+            this.AccountStripeId = string.Empty;
 
         }
 

@@ -1,4 +1,5 @@
 @using BirdBoxFull.Shared;
+@using System.Text.Json;
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 @inject ILocalStorageService LocalStorage
@@ -47,14 +48,48 @@
     {
         var response = await ServicoUtilizador.AddUtilizador(newUtilizador);
 
-        if (response)
+        if (response != null && response != null)
         {
             NavigationManager.NavigateTo("/login");
+            /*
+             * 
+
+            // Successfully registered, navigate to the provided URL
+            NavigationManager.NavigateTo(response);
+            string checkoutUrl = response;
+            // Attempt to parse the JSON and extract the URL
+            try
+            {
+                using (JsonDocument doc = JsonDocument.Parse(checkoutUrl))
+                {
+                    if (doc.RootElement.TryGetProperty("result", out JsonElement resultElement))
+                    {
+                        string extractedUrl = resultElement.GetString();
+                        Console.WriteLine("Extracted URL: " + extractedUrl);
+
+                        // Now you can navigate to the extracted URL
+                        NavigationManager.NavigateTo(extractedUrl);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Property 'result' not found in the JSON.");
+                    }
+                }
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine("Error parsing JSON: " + ex.Message);
+            }
+            */
+
         }
         else
         {
+            // Handle registration failure
             Console.WriteLine("ERROR");
-
         }
+
+
     }
-}
+}  
+

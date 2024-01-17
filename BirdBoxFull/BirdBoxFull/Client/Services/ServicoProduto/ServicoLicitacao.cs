@@ -83,6 +83,17 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
             }
         }
 
+        public async Task<string> Checkout(Licitacao licitacao)
+        {
+            licitacao.Leilao.Licitacoes = new List<Licitacao>();
+            licitacao.Leilao.WishLists = new List<WishList>();
+            licitacao.Leilao.Utilizador = new Utilizador();
+            licitacao.Utilizador = new Utilizador();
+            var response = await _http.PostAsJsonAsync("api/Licitacoes/pagamento", licitacao);
 
+            var url = await response.Content.ReadAsStringAsync();
+
+            return url; 
+        }
     }
 }
