@@ -34,8 +34,11 @@
 
     protected override void OnInitialized()
     {
-        CalculateRemainingTime(this);
-        timer = new Timer(CalculateRemainingTime, null, 0, 1000);
+        if (timer == null)
+        {
+            CalculateRemainingTime(this);
+            timer = new Timer(CalculateRemainingTime, null, 0, 1000);
+        }
     }
 
     private void CalculateRemainingTime(object state)

@@ -7,28 +7,31 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 {
     public class ServicoProduto : IServicoProduto
     {
-       /* public List<Leilao> Leiloes { get; set; } = new List<Leilao>{
+        /* public List<Leilao> Leiloes { get; set; } = new List<Leilao>{
 
-                new Leilao("ide","user1","Ganda Leilao",10,"nope","a decorrer", new List<string> {"https://picsum.photos/200/300", "https://picsum.photos/200/300", "https://picsum.photos/200/300","https://picsum.photos/200/300"},
-                    "Produto",
-                    10,
-                    "Banladesh",
-                     true,
+                 new Leilao("ide","user1","Ganda Leilao",10,"nope","a decorrer", new List<string> {"https://picsum.photos/200/300", "https://picsum.photos/200/300", "https://picsum.photos/200/300","https://picsum.photos/200/300"},
+                     "Produto",
+                     10,
+                     "Banladesh",
+                      true,
 
-                new DateTime(2024, 1, 15, 5, 10, 20)),
+                 new DateTime(2024, 1, 15, 5, 10, 20)),
 
-            };*/
+             };*/
 
         private readonly DataContext _context;
 
-        public ServicoProduto(DataContext context)
+        private readonly IServicoLicitacao _licitacoes;
+
+        public ServicoProduto(DataContext context, IServicoLicitacao licitacoes)
         {
             _context = context;
+            _licitacoes = licitacoes;
         }
 
         public async Task<List<Leilao>> GetAllLeiloes()
         {
-            
+
             List<Leilao> l = await _context.Leiloes.ToListAsync();
             foreach (Leilao le in l)
             {
@@ -46,14 +49,14 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
             }
             return l;
-           // return Leiloes;
-           
+            // return Leiloes;
+
         }
 
         public async Task<Leilao> GetLeilao(string codLeilao)
         {
-           
-            Leilao l =  await _context.Leiloes.FirstOrDefaultAsync(p => p.CodLeilao.Equals(codLeilao)).ConfigureAwait(false);
+
+            Leilao l = await _context.Leiloes.FirstOrDefaultAsync(p => p.CodLeilao.Equals(codLeilao)).ConfigureAwait(false);
 
             string codLeilaoToFilter = l.CodLeilao; // Replace with the actual value you're looking for
 
@@ -97,7 +100,7 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         public async Task AddLeilao(Leilao novoLeilao)
         {
-           
+
 
             // Assuming novoLeilao.Utilizador is the associated Utilizador
             var existingUtilizador = await _context.Utilizadores.FindAsync(novoLeilao.Utilizador.Username);
@@ -113,32 +116,153 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             await _context.SaveChangesAsync();
         }
 
-		public async Task<List<Leilao>> GetLeilaoByUser(string Username)
+        public async Task<List<Leilao>> GetLeilaoByUser(string Username)
         {
 
-			List<Leilao> l = await _context.Leiloes.ToListAsync();
+            List<Leilao> l = await _context.Leiloes.ToListAsync();
             List<Leilao> final = new List<Leilao>();
-			foreach (Leilao le in l)
-			{
+            foreach (Leilao le in l)
+            {
                 if (le.UtilizadorUsername.Equals(Username))
                 {
-					string codLeilaoToFilter = le.CodLeilao; // Replace with the actual value you're looking for
+                    string codLeilaoToFilter = le.CodLeilao; // Replace with the actual value you're looking for
 
-					List<LeilaoImage> filteredImages = await _context.LeilaoImages
-						.Where(image => image.LeilaoCodLeilao == codLeilaoToFilter)
-						.ToListAsync();
+                    List<LeilaoImage> filteredImages = await _context.LeilaoImages
+                        .Where(image => image.LeilaoCodLeilao == codLeilaoToFilter)
+                        .ToListAsync();
 
-					foreach (var image in filteredImages)
-					{
-						le.Images.Add(image.ImageUrl);
-					}
+                    foreach (var image in filteredImages)
+                    {
+                        le.Images.Add(image.ImageUrl);
+                    }
                     final.Add(le);
 
-				}
+                }
 
-			}
-			return final;
-		}
+            }
+            return final;
+        }
 
-	}
+        public async Task UpdateLeilaoState(Leilao leilao, string newState)
+        {
+            if (leilao != null)
+            {
+                leilao.Estado = newState;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task ChooseWinningBids()
+        {
+            List<Leilao> leiloes = await GetAllLeiloes();
+
+            foreach (Leilao item in leiloes)
+            {
+
+                if ((item.Estado.Equals("aDecorrer") || item.Estado.Equals("aProcessar")) && item.DataFinal.CompareTo(DateTime.Now) < 0)
+                {
+                    await UpdateLeilaoState(item, "aProcessar");
+                    List<Licitacao> licitacoes = await _licitacoes.ConsultarLicitacaoListLei(item.CodLeilao);
+                    Licitacao lMax = null;
+
+                    foreach (Licitacao licitacao in licitacoes)
+                    {
+                        if (licitacao.isWinner)
+                        {
+                           await _licitacoes.AlterarEstado(licitacao.codLicitacao, "InValida");
+                            continue;
+                        }
+                        if (lMax == null)
+                        {
+                            lMax = licitacao;
+                            continue;
+                        }
+                        if(licitacao.valor > lMax.valor)
+                        {
+                            lMax = licitacao;
+   
+                        }
+                        else if (licitacao.valor == lMax.valor && licitacao.timestamp.CompareTo(DateTime.Now) < 0)
+                        {
+
+                            lMax = licitacao;
+
+                        }
+
+                    }
+                    if(lMax == null)
+                    {
+
+                    }
+                    else
+                    {
+                        Console.WriteLine(lMax.codLicitacao);
+                        await _licitacoes.AlterarIsWining(lMax.codLicitacao, true);
+                    }
+
+                    
+
+                }
+            }
+        }
+
+        public async Task UpdateLeilaoStateById(string codLeilao,string newState)
+        {
+            Leilao leilao = await _context.Leiloes.FirstOrDefaultAsync(p => p.CodLeilao.Equals(codLeilao)).ConfigureAwait(false);
+            if (leilao != null)
+            {
+                leilao.Estado = newState;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task ChooseWinningBid(string codLeilao)
+        {
+            Leilao item = await _context.Leiloes.FirstOrDefaultAsync(p => p.CodLeilao.Equals(codLeilao)).ConfigureAwait(false);
+            if ((item.Estado.Equals("aDecorrer") || item.Estado.Equals("aProcessar")) && item.DataFinal.CompareTo(DateTime.Now) < 0)
+            {
+                await UpdateLeilaoState(item, "aProcessar");
+                List<Licitacao> licitacoes = await _licitacoes.ConsultarLicitacaoListLei(item.CodLeilao);
+                Licitacao lMax = null;
+
+                foreach (Licitacao licitacao in licitacoes)
+                {
+                    if (licitacao.isWinner)
+                    {
+                        await _licitacoes.AlterarEstado(licitacao.codLicitacao, "InValida");
+                        continue;
+                    }
+                    if (lMax == null)
+                    {
+                        lMax = licitacao;
+                        continue;
+                    }
+                    if (licitacao.valor > lMax.valor)
+                    {
+                        lMax = licitacao;
+
+                    }
+                    else if (licitacao.valor == lMax.valor && licitacao.timestamp.CompareTo(DateTime.Now) < 0)
+                    {
+
+                        lMax = licitacao;
+
+                    }
+
+                }
+                if (lMax == null)
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine(lMax.codLicitacao);
+                    await _licitacoes.AlterarIsWining(lMax.codLicitacao, true);
+                }
+
+
+
+            }
+        }
+    }
 }

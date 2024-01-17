@@ -15,5 +15,5 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         Task AddLeilao(Leilao novoLeilao);
 
 		Task<List<Leilao>> GetLeilaoByUser(string Username);
-	}
+    }
 }

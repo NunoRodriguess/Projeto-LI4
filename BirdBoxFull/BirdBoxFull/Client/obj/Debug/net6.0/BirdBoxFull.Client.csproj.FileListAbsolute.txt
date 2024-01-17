@@ -1690,3 +1690,4 @@ D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\Microsoft.
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\j6RfGgTq.gz
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\XfULiOoy.gz
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\H69Xejgq.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\ListaProdutos.razor.rz.scp.css

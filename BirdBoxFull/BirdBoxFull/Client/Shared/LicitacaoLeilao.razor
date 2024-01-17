@@ -52,6 +52,12 @@ else
             await JSRuntime.InvokeVoidAsync("alert", "Error: Já licitou uma vez");
             NavigationManager.NavigateTo("/");
         }
+        else if (DateTime.Now.CompareTo(Leilao.DataFinal) > 0)
+        {
+            // Display an alert for an existing bid by the user
+            await JSRuntime.InvokeVoidAsync("alert", "Error: Tempo já terminou");
+            NavigationManager.NavigateTo("/");
+        }
         else
         {
             // Successful submission

@@ -20,6 +20,9 @@ builder.Services.AddScoped<IServicoUtilizador,ServicoUtilizador>();
 builder.Services.AddScoped<IPagamentos, Pagamentos>();
 builder.Services.AddScoped<IServicoLicitacao, ServicoLicitacao>();
 
+
+builder.Services.AddHostedService<AuctionWinnerService>();
+
 var app = builder.Build();
 app.UseSwaggerUI();
 

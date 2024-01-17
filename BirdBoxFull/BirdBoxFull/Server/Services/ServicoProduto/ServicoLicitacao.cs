@@ -59,6 +59,13 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 				.ToListAsync();
 		}
 
+        public async Task<List<Licitacao>> ConsultarLicitacaoListLei(string codLeilao)
+        {
+            return await _context.Licitacoes
+                .Where(l => l.LeilaoCodLeilao.Equals(codLeilao))
+                .ToListAsync();
+        }
+
         public async Task ApagarLicitacao(string codLicitacao)
         {
             var licitacaoToDelete = await _context.Licitacoes.FindAsync(codLicitacao);
@@ -100,6 +107,40 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 // Handle other exceptions if needed
                 throw new Exception($"Error updating Licitacao estado: {ex.Message}", ex);
             }
+        }
+        public async Task AlterarIsWining(string codLicitacao, bool isW)
+        {
+            try
+            {
+                // Retrieve the Licitacao from the database based on codLicitacao
+                Licitacao licitacao = await _context.Licitacoes.FindAsync(codLicitacao);
+
+                if (licitacao != null)
+                {
+                    // Update the estado property
+                    licitacao.isWinner = isW;
+
+                    // Save the changes to the database
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    // Handle the case where the Licitacao with the provided codLicitacao is not found
+                    throw new KeyNotFoundException($"Licitacao with codLicitacao {codLicitacao} not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions if needed
+                throw new Exception($"Error updating Licitacao estado: {ex.Message}", ex);
+            }
+        }
+
+        public async Task<Licitacao> GetLicitacao(string bidId)
+        {
+            return await _context.Licitacoes
+                .Where(l => l.codLicitacao.Equals(bidId)).FirstOrDefaultAsync();
+
         }
     }
 }

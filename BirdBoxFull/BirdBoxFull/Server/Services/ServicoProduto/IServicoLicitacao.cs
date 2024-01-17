@@ -12,5 +12,10 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 		Task<List<Licitacao>> ConsultarLicitacaoList(String Username);
 
         Task AlterarEstado(string codLicitacao, string novoEstado);
+
+        Task<List<Licitacao>> ConsultarLicitacaoListLei(string codLeilao);
+
+        Task AlterarIsWining(string codLicitacao, bool isW);
+        Task <Licitacao> GetLicitacao(string bidId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BirdBoxFull.Server.Services.ServicoProduto;
+using BirdBoxFull.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
@@ -14,10 +15,12 @@ namespace BirdBoxFull.Server.Controllers
         const string endpointSecret = "whsec_6c6ec8b2872db7340805184ea9ba36b5f248264c432217d31c1bf810ee33fa34";
 
         private readonly IServicoLicitacao _servicoLicitacao;
+        private readonly IServicoProduto _servicoLeilao;
 
-        public WebhookController(IServicoLicitacao servicoLicitacao)
+        public WebhookController(IServicoLicitacao servicoLicitacao, IServicoProduto servicoLeilao)
         {
             _servicoLicitacao = servicoLicitacao;
+            _servicoLeilao = servicoLeilao;
             
         }
 
@@ -40,6 +43,8 @@ namespace BirdBoxFull.Server.Controllers
                     // Retrieve metadata or other details from the checkout session
                     string bidId = checkoutSession.Metadata["codLicitacao"];
                     await _servicoLicitacao.AlterarEstado(bidId,"Paga");
+                    Licitacao l = await _servicoLicitacao.GetLicitacao(bidId);
+                    await _servicoLeilao.UpdateLeilaoStateById(l.LeilaoCodLeilao,"Terminado");
                     // Começar a encomenda também
                     Console.WriteLine($"Checkout session completed for bid ID: {bidId}");
 
@@ -54,6 +59,8 @@ namespace BirdBoxFull.Server.Controllers
 
                     string bidId = checkoutSession.Metadata["codLicitacao"];
                     await _servicoLicitacao.AlterarEstado(bidId, "Invalida");
+                    Licitacao l = await _servicoLicitacao.GetLicitacao(bidId);
+                    await _servicoLeilao.ChooseWinningBid(l.Leilao.CodLeilao);
 
                     // Now you can use the bidId for further processing
                     Console.WriteLine($"Checkout session expired for bid ID: {bidId}");

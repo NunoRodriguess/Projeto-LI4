@@ -1,42 +1,31 @@
 ﻿@inject IServicoProduto ServicoProduto
 
-<ul class="list-unstyled">
-	@foreach (var product in ServicoProduto.Leiloes)
-	{
-		@if (product.Estado.Equals("aDecorrer") && product.IsPublic==true)
-		{
-
-					<li class="media my-3">
-					<div class ="media-img-wrapper mr-2">
-						<a href="/produto/@product.CodLeilao">
-									<img class="media-img" src="@product.Images.ElementAt(0)" alt = "@product.Name"/>
-						</a>
-					</div>
-					<div class="media-body">
-								<a href="/produto/@product.CodLeilao">
-								<h4 class = "mb-0">@product.Name</h4>
-							</a>
-							<p>@product.EntryPrice</p>
-							<p>@product.Location</p>
-					</div>
-				</li>
-			
-
-		}
-		
-
-
-	}
-
-
-
-</ul>
-
-
+<div class="container-cards">
+    @foreach (var product in ServicoProduto.Leiloes)
+    {
+        if (product.Estado.Equals("aDecorrer") && product.IsPublic)
+        {
+                    <li class="card my-3">
+                        <div class="card-img-wrapper">
+                            <a href="/produto/@product.CodLeilao">
+                                <img class="card-img" src="@product.Images.ElementAt(0)" alt="@product.Name" />
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <a href="/produto/@product.CodLeilao">
+                                <h4 class="mb-0">@product.Name</h4>
+                            </a>
+                            <p>Entrada: @product.EntryPrice €</p>
+                            <p>Tempo Restante: @product.Location</p>
+                        </div>
+                    </li>
+        }
+    }
+</div>
 
 @code {
-	protected override async Task OnInitializedAsync()
-	{
-		await ServicoProduto.loadLeiloes();
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        await ServicoProduto.loadLeiloes();
+    }
 }

@@ -200,14 +200,14 @@
       "netstandard.dll": "sha256-8Ej3VOdrj8ijDcTS0\/1AEMpisaFDe3Nmj0Fbq5sfZEk=",
       "System.Private.CoreLib.dll": "sha256-tqFypIfntE2p16olQ2cI4rklqWNJqsPJvAoPSChg0H0=",
       "BirdBoxFull.Shared.dll": "sha256-u21M8jkAd6dlP0mT0grktoUluQc1J\/1gd62duiDTTXU=",
-      "BirdBoxFull.Client.dll": "sha256-OHaIldjGs4sw9MEtlc7q8B23CMsbarW4qUBOa\/5\/0NA="
+      "BirdBoxFull.Client.dll": "sha256-N1btSx3g+coSlRPu3nXFf8rGPN\/rsgWKYf8hnaDBDs4="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "BirdBoxFull.Shared.pdb": "sha256-t8m+hxA8FPayaWemzNo3LoBx3GvOob1JYIIRAJEYq5E=",
-      "BirdBoxFull.Client.pdb": "sha256-A0tRvgh7TtKSzv8VRwArPDZ75VsYdk2QGionzNoc2RE="
+      "BirdBoxFull.Client.pdb": "sha256-zePODiH\/Wxr2Y9\/E7AA2kZPwsv5W13y4kmrCSm\/6AxM="
     },
     "runtime": {
       "dotnet.6.0.18.h2uhypalz0.js": "sha256-Iww31ANFa3KZuR4RkhiSYt3FJ7PKpMdeFNq3l3Td1h8=",
