@@ -10,5 +10,6 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         Task<bool> AlteraUtilizador(Utilizador updatedUser);
         Task<Utilizador> GetUtilizadorAux(string utilizadorUsername);
+        Task<List<Utilizador>> GetUtilizadores();
     }
 }

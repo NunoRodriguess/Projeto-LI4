@@ -1,16 +1,12 @@
 ﻿@inject IServicoProduto ServicoProduto
 
 <div class="container-cards">
-    @for (int i = 0; i < ServicoProduto.Leiloes.Count; i += 3)
+    @foreach (var product in ServicoProduto.Leiloes)
     {
-            <div class="row">
-            @for (int j = i; j < i + 3 && j < ServicoProduto.Leiloes.Count; j++)
-            {
-                var product = ServicoProduto.Leiloes[j];
-                        <div class="col-md-4">
+        
                             <li class="card my-3">
                                 <div class="card-img-wrapper">
-                                    <a href="/produtoadmin/@product.CodLeilao">
+                                    <a href="/produto/@product.CodLeilao">
                                         <img class="card-img" src="@product.Images.ElementAt(0)" alt="@product.Name" />
                                     </a>
                                 </div>
@@ -20,12 +16,9 @@
                                     </a>
                                     <p>Entrada: @product.EntryPrice €</p>
                                     <p>Tempo Restante: @product.Location</p>
-                                    <p>Estado: @product.Estado</p>
                                 </div>
                             </li>
-                        </div>
-            }
-            </div>
+        
     }
 </div>
 

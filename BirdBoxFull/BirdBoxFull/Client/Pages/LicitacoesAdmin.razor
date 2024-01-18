@@ -28,7 +28,7 @@
         // Retrieve userId from LocalStorage
         userId = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
 
-        if (string.IsNullOrEmpty(userId))
+        if (string.IsNullOrEmpty(userId) || !userId.Equals("admin"))
         {
             NavigationManager.NavigateTo("/login");
         }

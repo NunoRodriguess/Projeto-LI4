@@ -15,6 +15,8 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 
         Task<string> getStripe(string stripeAccId);
 
+        Task<List<Utilizador>> GetUtilizadores();
+
 
     }
 }

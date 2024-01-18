@@ -96,5 +96,10 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 return user;
           
         }
+
+        public async Task<List<Utilizador>> GetUtilizadores()
+        {
+            return await _context.Utilizadores.ToListAsync();
+        }
     }
 }

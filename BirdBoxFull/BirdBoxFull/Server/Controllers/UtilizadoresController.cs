@@ -25,7 +25,7 @@ namespace BirdBoxFull.Server.Controllers
             _utilizadorService = utilizadorService;
         }
 
-        [HttpGet("{Username}/{Password}")]
+        [HttpGet("login/{Username}/{Password}")]
         public async Task<ActionResult<Utilizador>> GetUtilizador(string Username, string Password)
         {
             Console.WriteLine(Username + " " + Password);
@@ -43,6 +43,13 @@ namespace BirdBoxFull.Server.Controllers
             {
                 return Ok(u);
             }
+        }
+
+        [HttpGet("all/users/admin")]
+        public async Task<ActionResult<List<Utilizador>>> GetUtilizadores()
+        {
+            Console.WriteLine("HERE!");
+            return Ok(await _utilizadorService.GetUtilizadores());
         }
 
         [HttpGet("stripe/{id}")]

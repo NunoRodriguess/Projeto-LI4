@@ -19,7 +19,7 @@
 </div>
 
 @code {
-    [Parameter]
+    
     public string userId { get; set; }
 
     protected override async Task OnInitializedAsync()
@@ -27,12 +27,12 @@
         // Retrieve userId from LocalStorage
         userId = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
 
-        if (string.IsNullOrEmpty(userId))
+        if (string.IsNullOrEmpty(userId) || !userId.Equals("admin"))
         {
             NavigationManager.NavigateTo("/login");
         }
 
-        Console.WriteLine(userId);
+       
 
         // Call the base implementation
         await base.OnInitializedAsync();

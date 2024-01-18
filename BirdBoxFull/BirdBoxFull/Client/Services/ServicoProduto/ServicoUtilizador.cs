@@ -20,7 +20,7 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 
         public async Task<Utilizador> GetUtilizador(string username, string password)
         {
-            var response = await _http.GetAsync($"api/Utilizadores/{username}/{password}");
+            var response = await _http.GetAsync($"api/Utilizadores/login/{username}/{password}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -133,7 +133,21 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
             }
         }
 
+        public async Task<List<Utilizador>> GetUtilizadores()
+        {
+            try
+            {
+                var response = await _http.GetFromJsonAsync<List<Utilizador>>("api/Utilizadores/all/users/admin");
+                Console.WriteLine("Response received:", response);
+                return  response ?? new List<Utilizador>();
+               
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading utilizadores:", ex.Message);
+                return new List<Utilizador>(); 
+            }
 
-
+        }
     }
 }
