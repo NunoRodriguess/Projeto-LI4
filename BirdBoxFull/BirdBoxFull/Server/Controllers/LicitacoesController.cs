@@ -77,6 +77,19 @@ namespace BirdBoxFull.Server.Controllers
 				return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
 			}
 		}
+        [HttpGet("listall")]
+        public async Task<ActionResult<List<Licitacao>>> ConsultarLicitacaoListAll()
+        {
+            try
+            {
+                var licitacoes = await _licitacaoService.ConsultarLicitacaoAll();
+                return Ok(licitacoes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
+            }
+        }
 
         [HttpDelete("{codLicitacao}")]
         public async Task<ActionResult> ApagarLicitacao(string codLicitacao)

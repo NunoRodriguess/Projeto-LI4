@@ -24,13 +24,19 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         private readonly IServicoLicitacao _licitacoes;
 
+        private readonly IServicoUtilizador _servicoUtilizador;
+
+        private readonly IEmailSenderService _emailSenderService;
+
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ServicoProduto(DataContext context, IServicoLicitacao licitacoes, IWebHostEnvironment webHostEnvironment)
+        public ServicoProduto(DataContext context, IServicoLicitacao licitacoes, IWebHostEnvironment webHostEnvironment, IServicoUtilizador servicoUtilizador, IEmailSenderService emailSenderService)
         {
             _context = context;
             _licitacoes = licitacoes;
             _webHostEnvironment = webHostEnvironment;
+            _servicoUtilizador = servicoUtilizador;
+            _emailSenderService = emailSenderService;
         }
 
         public async Task<List<Leilao>> GetAllLeiloes()
@@ -196,7 +202,8 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                     }
                     if(lMax == null)
                     {
-
+                        Utilizador u = await _servicoUtilizador.GetUtilizadorAux(item.UtilizadorUsername);
+                        _emailSenderService.SendAuctionEndedEmail(u.email, item.Name, false);
                     }
                     else
                     {

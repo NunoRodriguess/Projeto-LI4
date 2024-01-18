@@ -20,6 +20,7 @@ builder.Services.AddScoped<IServicoUtilizador,ServicoUtilizador>();
 builder.Services.AddScoped<IPagamentos, Pagamentos>();
 builder.Services.AddScoped<IServicoLicitacao, ServicoLicitacao>();
 builder.Services.AddScoped<IServicoEncomenda, ServicoEncomenda>();
+builder.Services.AddScoped<IEmailSenderService, EmailSenderService>();
 
 
 builder.Services.AddHostedService<AuctionWinnerService>();

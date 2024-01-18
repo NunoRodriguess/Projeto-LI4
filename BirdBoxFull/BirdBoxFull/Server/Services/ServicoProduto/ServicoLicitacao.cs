@@ -142,5 +142,10 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 .Where(l => l.codLicitacao.Equals(bidId)).FirstOrDefaultAsync();
 
         }
+
+        public async Task<List<Licitacao>> ConsultarLicitacaoAll()
+        {
+            return await _context.Licitacoes.ToListAsync();
+        }
     }
 }

@@ -95,5 +95,21 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 
             return url; 
         }
+
+        public async Task<List<Licitacao>> ConsultarLicitacaoListAll()
+        {
+            try
+            {
+                // Adjust the API endpoint based on your server setup
+                var response = await _http.GetFromJsonAsync<List<Licitacao>>($"api/Licitacoes/listall");
+
+                return response ?? new List<Licitacao>();
+            }
+            catch (HttpRequestException)
+            {
+                // Handle the exception, log, or return an empty list as needed
+                return new List<Licitacao>();
+            }
+        }
     }
 }

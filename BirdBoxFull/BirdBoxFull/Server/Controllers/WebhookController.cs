@@ -17,13 +17,18 @@ namespace BirdBoxFull.Server.Controllers
         private readonly IServicoLicitacao _servicoLicitacao;
         private readonly IServicoProduto _servicoLeilao;
         private readonly IServicoEncomenda _servicoEncomenda;
+        private readonly IEmailSenderService _emailSenderService;
+        private readonly IServicoUtilizador _servicoUtilizador;
 
-        public WebhookController(IServicoLicitacao servicoLicitacao, IServicoProduto servicoLeilao, IServicoEncomenda servicoEncomenda)
+        public WebhookController(IServicoLicitacao servicoLicitacao, IServicoProduto servicoLeilao, IServicoEncomenda servicoEncomenda, IEmailSenderService emailSenderService, IServicoUtilizador servicoUtilizador)
         {
             _servicoLicitacao = servicoLicitacao;
             _servicoLeilao = servicoLeilao;
             _servicoEncomenda = servicoEncomenda;
-            
+            _emailSenderService = emailSenderService;
+            _servicoUtilizador = servicoUtilizador;
+
+
         }
 
         [HttpPost]
@@ -53,6 +58,9 @@ namespace BirdBoxFull.Server.Controllers
                     e.numeroSeguimento = "https://www.dhl.com/pt-pt/home.html?locale=true";
                     await _servicoEncomenda.addEncomenda(e);
 
+                    Leilao lei = await _servicoLeilao.GetLeilao(l.LeilaoCodLeilao);
+                    Utilizador re = await _servicoUtilizador.GetUtilizadorAux(lei.UtilizadorUsername);
+                    _emailSenderService.SendAuctionEndedEmail(re.email,lei.Name, true);
                     Console.WriteLine($"Checkout session completed for bid ID: {bidId}");
 
                     // Perform actions based on the bidId

@@ -1,3 +1,6 @@
+/* /Pages/LicitacoesAdmin.razor.rz.scp.css */
+body[b-mqmgixgond] {
+}
 /* /Pages/Licitacoesuser.razor.rz.scp.css */
 @media (max-width: 768px) {
     .flex-column-reverse[b-ox32v6darb] {
@@ -730,6 +733,9 @@
         font-size: 0.8rem;
         font-weight: bold;
     }
+/* /Shared/DisplayLicitacoesAdmin.razor.rz.scp.css */
+body[b-dt5cfkha4e] {
+}
 /* /Shared/FilterBar.razor.rz.scp.css */
 .filter-bar-content[b-20ndywl08v] {
     font-size: 2.7rem;

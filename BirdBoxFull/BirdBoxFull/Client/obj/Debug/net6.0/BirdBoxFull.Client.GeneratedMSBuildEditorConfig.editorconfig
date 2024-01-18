@@ -76,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Pages/UtilizadoresAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXRpbGl6YWRvcmVzQWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Pages/Wishesuser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lzaGVzdXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,6 +90,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayLicitacoes.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlMaWNpdGFjb2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayUtilizadoresAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlVdGlsaXphZG9yZXNBZG1pbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/Grid.razor]
@@ -103,6 +111,10 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Pages/LicitacoesAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGljaXRhY29lc0FkbWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-mqmgixgond
 
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Pages/Licitacoesuser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGljaXRhY29lc3VzZXIucmF6b3I=
@@ -123,6 +135,10 @@ build_metadata.AdditionalFiles.CssScope = b-r0u542v45z
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayLeiloes.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlMZWlsb2VzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-tozuqmay62
+
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayLicitacoesAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlMaWNpdGFjb2VzQWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-dt5cfkha4e
 
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/FilterBar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZpbHRlckJhci5yYXpvcg==
