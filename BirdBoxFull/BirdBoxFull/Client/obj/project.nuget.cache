@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YFXIwMe9rQvOxx/hsGt6cX/3ECb5xCTZrj434SWvuPCs/faVGcceHo9zyTOMISdvULPLs3TQiFjZ7EdlJjDK4Q==",
+  "dgSpecHash": "whcKKmE8e6OmZ+1oh4ExbwkWpScFLekWU3dW4Ejs2hzSIW066pWiP4aFQ0qJQ7dG00ScdPuwiRsxYhZIRYKaNQ==",
   "success": true,
   "projectFilePath": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\BirdBoxFull.Client.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.24\\microsoft.aspnetcore.components.web.6.0.24.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.24\\microsoft.aspnetcore.components.webassembly.6.0.24.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.devserver\\6.0.24\\microsoft.aspnetcore.components.webassembly.devserver.6.0.24.nupkg.sha512",
+    "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.24\\microsoft.aspnetcore.metadata.6.0.24.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

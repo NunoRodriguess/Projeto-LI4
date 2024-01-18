@@ -16,11 +16,13 @@ namespace BirdBoxFull.Server.Controllers
 
         private readonly IServicoLicitacao _servicoLicitacao;
         private readonly IServicoProduto _servicoLeilao;
+        private readonly IServicoEncomenda _servicoEncomenda;
 
-        public WebhookController(IServicoLicitacao servicoLicitacao, IServicoProduto servicoLeilao)
+        public WebhookController(IServicoLicitacao servicoLicitacao, IServicoProduto servicoLeilao, IServicoEncomenda servicoEncomenda)
         {
             _servicoLicitacao = servicoLicitacao;
             _servicoLeilao = servicoLeilao;
+            _servicoEncomenda = servicoEncomenda;
             
         }
 
@@ -28,7 +30,6 @@ namespace BirdBoxFull.Server.Controllers
         public async Task<IActionResult> Index()
         {
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-            Console.WriteLine("CONTROLLLER STRIPE");
             try
             {
                 var stripeEvent = EventUtility.ConstructEvent(json,
@@ -46,6 +47,12 @@ namespace BirdBoxFull.Server.Controllers
                     Licitacao l = await _servicoLicitacao.GetLicitacao(bidId);
                     await _servicoLeilao.UpdateLeilaoStateById(l.LeilaoCodLeilao,"Terminado");
                     // Começar a encomenda também
+                    Encomenda e = new Encomenda();
+                    e.LeilaoCodLeilao = l.LeilaoCodLeilao;
+                    e.UtilizadorUsername = l.UtilizadorUsername;
+                    e.numeroSeguimento = "https://www.dhl.com/pt-pt/home.html?locale=true";
+                    await _servicoEncomenda.addEncomenda(e);
+
                     Console.WriteLine($"Checkout session completed for bid ID: {bidId}");
 
                     // Perform actions based on the bidId

@@ -15,6 +15,7 @@
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-7ePmaCW7I5d90dlS3n4Wls\/gdGmoq22zlo+VbsJvB7o=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-0ZI4LHMjoT7kziqMdK78\/Y\/hNOIkEcPGRvp5sz5F4JU=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-VlvpDDA4R\/9rp2jt0Ur\/Dh+MhWAoTbn1Y8KXtyEsNpQ=",
+      "Microsoft.AspNetCore.Http.Features.dll": "sha256-nhDtQDkvXQUWiexwW5atxrEm6abFLbvzeVCl\/Gb5kvI=",
       "Microsoft.AspNetCore.Metadata.dll": "sha256-UObNbIq2GnBjfCKrV655TUZjCSh9FgOnPOHKiOd0tEU=",
       "Microsoft.Extensions.Configuration.dll": "sha256-c8yYhfrOBLEnOBglLTu9peXSbJDwFpuT4UQiXSv28Og=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-5Otet+KKVUjNkE\/hqcNWmt75H1K2VNuKPFagpRd6Ces=",
@@ -199,15 +200,15 @@
       "mscorlib.dll": "sha256-R1JlsouwIAVx0f4j8Ku8nSgx9UWnoKc26EJSnZko6MY=",
       "netstandard.dll": "sha256-8Ej3VOdrj8ijDcTS0\/1AEMpisaFDe3Nmj0Fbq5sfZEk=",
       "System.Private.CoreLib.dll": "sha256-tqFypIfntE2p16olQ2cI4rklqWNJqsPJvAoPSChg0H0=",
-      "BirdBoxFull.Shared.dll": "sha256-u21M8jkAd6dlP0mT0grktoUluQc1J\/1gd62duiDTTXU=",
-      "BirdBoxFull.Client.dll": "sha256-N1btSx3g+coSlRPu3nXFf8rGPN\/rsgWKYf8hnaDBDs4="
+      "BirdBoxFull.Shared.dll": "sha256-W6TRF9hO+MnIH59aGGAmMezcsFufCHD3SP1RCVfD8YI=",
+      "BirdBoxFull.Client.dll": "sha256-1LDPBjhMC1V471l62hy91mkj0HLP3nvLdfgw7ybfXnw="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "BirdBoxFull.Shared.pdb": "sha256-t8m+hxA8FPayaWemzNo3LoBx3GvOob1JYIIRAJEYq5E=",
-      "BirdBoxFull.Client.pdb": "sha256-zePODiH\/Wxr2Y9\/E7AA2kZPwsv5W13y4kmrCSm\/6AxM="
+      "BirdBoxFull.Shared.pdb": "sha256-RUlAUe2a1RD\/Se5iG5UAh0qV7HDCAhQePC4qhRHiq6A=",
+      "BirdBoxFull.Client.pdb": "sha256-sfjcqwabpV3fC82BnYB4jOoh+PH7B0jgBRMXEQJRdmA="
     },
     "runtime": {
       "dotnet.6.0.18.h2uhypalz0.js": "sha256-Iww31ANFa3KZuR4RkhiSYt3FJ7PKpMdeFNq3l3Td1h8=",

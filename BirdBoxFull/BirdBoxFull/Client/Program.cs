@@ -12,6 +12,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IServicoProduto, ServicoProduto>();
 builder.Services.AddScoped<IServicoUtilizador, ServicoUtilizador>();
 builder.Services.AddScoped<IServicoLicitacao, ServicoLicitacao>();
+builder.Services.AddScoped<IServicoEncomenda, ServicoEncomenda>();
 builder.Services.AddBlazoredLocalStorage();
 
 await builder.Build().RunAsync();

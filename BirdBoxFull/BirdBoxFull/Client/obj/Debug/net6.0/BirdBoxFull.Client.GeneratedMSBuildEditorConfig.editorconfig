@@ -68,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0by5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Pages/ProdutoAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b0FkbWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Pages/Teste.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,8 +80,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lzaGVzdXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayLeiloes.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlMZWlsb2VzLnJhem9y
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayEncomendas.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlFbmNvbWVuZGFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayLicitacoes.razor]
@@ -116,6 +120,10 @@ build_metadata.AdditionalFiles.CssScope = b-jreb3r0fuu
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENyZWF0ZUF1Y3Rpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-r0u542v45z
 
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/DisplayLeiloes.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlMZWlsb2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-tozuqmay62
+
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/FilterBar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZpbHRlckJhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-20ndywl08v
@@ -132,9 +140,17 @@ build_metadata.AdditionalFiles.CssScope = b-ai7pk45s0y
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvdXJCdXR0b25zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-8cl7fxz58q
 
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/LicitacaoLeilaoAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExpY2l0YWNhb0xlaWxhb0FkbWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-4osud2gjz2
+
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/ListaProdutos.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExpc3RhUHJvZHV0b3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-qo8idh21y6
+
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/ListaProdutosAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExpc3RhUHJvZHV0b3NBZG1pbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-x1lbnu3055
 
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/LoginComp.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luQ29tcC5yYXpvcg==
@@ -148,6 +164,10 @@ build_metadata.AdditionalFiles.CssScope = b-xioo9vtl0m
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-bpibnvqyjf
 
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/NavMenuAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnVBZG1pbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-3slexqnbe2
+
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/OrderButton.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE9yZGVyQnV0dG9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-d4bbyx5zss
@@ -159,3 +179,7 @@ build_metadata.AdditionalFiles.CssScope = b-2dbehg633o
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/RegistUser.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZ2lzdFVzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-lt1pe4jggy
+
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/TwoButtons.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFR3b0J1dHRvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-lmc71w047s

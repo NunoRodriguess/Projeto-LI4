@@ -1,5 +1,6 @@
 ﻿using BirdBoxFull.Server.Data;
 using BirdBoxFull.Shared;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
 
@@ -23,10 +24,13 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
         private readonly IServicoLicitacao _licitacoes;
 
-        public ServicoProduto(DataContext context, IServicoLicitacao licitacoes)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ServicoProduto(DataContext context, IServicoLicitacao licitacoes, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _licitacoes = licitacoes;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<List<Leilao>> GetAllLeiloes()
@@ -252,7 +256,8 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 }
                 if (lMax == null)
                 {
-
+                    await UpdateLeilaoState(item, "Terminado");
+                    // mandar email ao gajo
                 }
                 else
                 {
@@ -264,5 +269,36 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
 
             }
         }
+
+        public async Task UpdateLeilaoRelatorio(string codLeilao, IFormFile file)
+        {
+            // Get the existing Leilao
+            Leilao existingLeilao = await _context.Leiloes
+                .FirstOrDefaultAsync(p => p.CodLeilao.Equals(codLeilao))
+                .ConfigureAwait(false);
+            Console.WriteLine(codLeilao);
+
+
+            if (existingLeilao != null)
+            {
+                Console.WriteLine("Dentro do if null");
+
+                var fileName = $"NovaPasta/{codLeilao}_Relatorio.pdf";
+                var filePath = Path.Combine(fileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(fileStream);
+                }
+
+                // Update the URL in the Leilao entity
+                existingLeilao.Relatorio = $"{fileName}";
+                existingLeilao.DataFinal = DateTime.Now.AddDays(7) ;
+                existingLeilao.Estado = "aDecorrer";
+                // Save changes to the database
+                await _context.SaveChangesAsync();
+            }
+        }
+
     }
 }

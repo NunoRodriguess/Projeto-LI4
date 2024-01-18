@@ -9,15 +9,14 @@
 <h2>Descrição: @Leilao.Descricao</h2>
 @if (Leilao.Relatorio.Equals("nada"))
 {
-        <h3>Não Auntenticado</h3>
+    <h3>Não Auntenticado</h3>
 }
 else
 {
-        <h3>Autenticado: @Leilao.Relatorio</h3>
+    <button class="btn btn-dark log-button" @onclick="NavigateToUrl">Ver Relatório</button>
 }
 
 <EditForm Model="l" OnSubmit="HandleSubmition">
-
     <input class="form-control" id="oneValor" placeholder="Valor" @bind-value="l.valor">
     <button type="submit" class="btn btn-dark log-button">Enviar Licitacao</button>
 </EditForm>
@@ -27,6 +26,12 @@ else
     public Leilao Leilao { get; set; }
 
     public Licitacao l { get; set; } = new Licitacao();
+
+    private async Task NavigateToUrl()
+    {
+        string url = Leilao.Relatorio;
+        await JSRuntime.InvokeVoidAsync("open", url, "_blank");
+    }
 
     public async void HandleSubmition()
     {

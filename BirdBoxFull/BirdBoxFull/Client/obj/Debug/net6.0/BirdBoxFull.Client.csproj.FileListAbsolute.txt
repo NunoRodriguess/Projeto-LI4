@@ -1691,3 +1691,12 @@ D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\j
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\XfULiOoy.gz
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\H69Xejgq.gz
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\ListaProdutos.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\ListaProdutosAdmin.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\NavMenuAdmin.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\TwoButtons.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\LicitacaoLeilaoAdmin.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Http.Features.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Http.Features.dll.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Features.dll
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\gHLdBhhJ.gz
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayLeiloes.razor.rz.scp.css

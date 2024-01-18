@@ -1,4 +1,5 @@
 ﻿using BirdBoxFull.Shared;
+using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.Net.Http.Json;
 
@@ -42,7 +43,7 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 
         public async Task AddLeilao(Leilao novoLeilao)
         {
-            Console.WriteLine(novoLeilao.UtilizadorUsername + " " + novoLeilao.DataFinal + " " + novoLeilao.Estado + " " + novoLeilao.CodLeilao);
+           
             var response = await _http.PostAsJsonAsync("api/Leiloes/regista", novoLeilao);
 
             if (!response.IsSuccessStatusCode)
@@ -53,8 +54,30 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         }
 		public async Task<List<Leilao>> GetLeilaoByUser(string Username)
         {
-            Console.WriteLine("BEEP BEEP");
+
 			return await _http.GetFromJsonAsync<List<Leilao>>($"api/Leiloes/user/{Username}");
 		}
-	}
+
+        public async Task UpdateLeilaoRelatorio(string codLeilao, string fileName, byte[] data)
+        {
+            // Create FormData and append the file data
+            MultipartFormDataContent formData = new MultipartFormDataContent();
+            formData.Add(new ByteArrayContent(data), "file", fileName);
+
+            // Send the file data to the server for storage
+            var response = await _http.PostAsync($"/api/Leiloes/upload/relatorio/{codLeilao}", formData);
+            if (response.IsSuccessStatusCode)
+            {
+                // Handle success if needed
+            }
+            else
+            {
+                // Handle error
+                // You may want to display an error message to the user
+            }
+        }
+
+
+
+    }
 }

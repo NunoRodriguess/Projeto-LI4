@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "USQmsiGnebmiUJL7Gxsodf1ZClWX9uVHT6gAgY9hXtE=",
+  "Hash": "JPMDuSw1O8V3u/bg6FJFEOMpS6Y/7I/ZT8jH0Rm0HA0=",
   "Source": "BirdBoxFull.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -389,6 +389,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.24\\lib\\net6.0\\Microsoft.AspNetCore.Components.WebAssembly.dll"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Features.dll",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Features.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\lib\\net5.0\\Microsoft.AspNetCore.Http.Features.dll"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
@@ -4860,6 +4877,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.Http.dll"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\gHLdBhhJ.gz",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Features.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Features.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Features.dll"
     },
     {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\obj\\Debug\\net6.0\\build-gz\\gKrDz3fG.gz",

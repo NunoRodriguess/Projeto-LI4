@@ -140,6 +140,12 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0",
+          "System.IO.Pipelines": "6.0.3"
+        }
+      },
       "Microsoft.AspNetCore.Metadata/6.0.24": {
         "runtime": {
           "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
@@ -722,6 +728,9 @@
         }
       },
       "BirdBoxFull.Shared/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.17"
+        },
         "runtime": {
           "BirdBoxFull.Shared.dll": {}
         }
@@ -810,6 +819,13 @@
       "sha512": "sha512-iaeGAA1iLE8/zseMb2cVITMfvjRf+UUT3RQT55nUJPip+5sACdfVQMOmcwdu0cQk7UEVoPKhEuHAWSFq/Ok/9w==",
       "path": "microsoft.aspnetcore.components.webassembly.server/6.0.24",
       "hashPath": "microsoft.aspnetcore.components.webassembly.server.6.0.24.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Metadata/6.0.24": {
       "type": "package",

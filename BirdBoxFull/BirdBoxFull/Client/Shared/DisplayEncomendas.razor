@@ -1,0 +1,52 @@
+﻿@using System.Text.Json;
+@inject IServicoEncomenda ServicoEncomenda
+@inject IServicoProduto ServicoProduto
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
+<!-- Add a button for each Licitacao item -->
+<!-- Add a button for each Licitacao item -->
+<ul class="list-unstyled">
+    @foreach (var product in l)
+    {
+        
+                    <li class="media my-3">
+                        <div class="media-img-wrapper mr-2">
+                            <img class="media-img" src="@product.Leilao.Images.ElementAt(0)" alt="@product.Leilao.Name" />
+                        </div>
+                        <div class="media-body">
+                            <h4 class="mb-0">@product.codEncomenda</h4>
+                            <p>@product.Leilao.Name</p>
+                            <p>@product.numeroSeguimento</p>
+                        </div>
+                    </li>
+        
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public string Username { get; set; }
+
+    List<Encomenda> l { get; set; } = new List<Encomenda>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Username = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
+        await LoadEncomendas();
+    }
+
+    private async Task LoadEncomendas()
+    {
+         l = await ServicoEncomenda.GetEncomendasByUser(Username);
+
+        foreach (Encomenda item in l)
+        {
+            Leilao temp = await ServicoProduto.loadLeilao(item.LeilaoCodLeilao);
+            item.Leilao = temp;
+        }
+    }
+
+
+    }
+

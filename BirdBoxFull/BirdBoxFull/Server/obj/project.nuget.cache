@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DwEtD678rDhhyWLPytFNeMrIv0hQiZoBshspo7sNsCAvdUeSqEE9eC89hCtoTZXM5knGA2Cpy5jCYeV2vVsAkw==",
+  "dgSpecHash": "O8Kssu55FqCjBAF9rRrrz4WH0ygVFwaMYItGYFgogmKDfRPVv2703hQf77N5wPTAh9/zb+7dXnidykyyAb8QNw==",
   "success": true,
   "projectFilePath": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Server\\BirdBoxFull.Server.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.24\\microsoft.aspnetcore.components.web.6.0.24.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.24\\microsoft.aspnetcore.components.webassembly.6.0.24.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\6.0.24\\microsoft.aspnetcore.components.webassembly.server.6.0.24.nupkg.sha512",
+    "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.24\\microsoft.aspnetcore.metadata.6.0.24.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\jonug\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

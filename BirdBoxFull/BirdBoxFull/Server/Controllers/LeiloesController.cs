@@ -69,6 +69,21 @@ namespace BirdBoxFull.Server.Controllers
             }
         }
 
+        [HttpPost("upload/relatorio/{codLeilao}")]
+        public async Task<IActionResult> UploadRelatorio(string codLeilao, [FromForm] FileUploadDto fileUploadDto)
+        {
+            Console.WriteLine("Controlador de cenas");
+            if (fileUploadDto?.File != null && fileUploadDto.File.Length > 0)
+            {
+                Console.WriteLine("Dentro do IF");
+                await _productService.UpdateLeilaoRelatorio(codLeilao, fileUploadDto.File);
+                // Return a success response if needed
+                return Ok("File uploaded successfully");
+            }
+
+            return BadRequest("Invalid file.");
+        }
+
 
     }
 }

@@ -1,5 +1,5 @@
-﻿using BirdBoxFull.Client.Pages;
-using BirdBoxFull.Shared;
+﻿using BirdBoxFull.Shared;
+using Microsoft.AspNetCore.Http;
 using static System.Net.WebRequestMethods;
 
 namespace BirdBoxFull.Client.Services.ServicoProduto
@@ -15,5 +15,7 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         Task AddLeilao(Leilao novoLeilao);
 
 		Task<List<Leilao>> GetLeilaoByUser(string Username);
+
+		Task UpdateLeilaoRelatorio(string codLeilao, string fileName, byte[] data);
     }
 }
