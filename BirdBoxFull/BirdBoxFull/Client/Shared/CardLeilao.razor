@@ -2,6 +2,8 @@
 @inject ILocalStorageService LocalStorage
 @inject IServicoProduto ServicoProduto
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
 <div class="card">
     <div class="row no-gutters">
         <div class="col-md-9">
@@ -33,7 +35,14 @@
         </div>
     </div>
 </div>
+@if (Leilao != null && Leilao.UtilizadorUsername != null && usernameId.Equals(Leilao.UtilizadorUsername))
+{
+        <button @onclick="RemoveLeilao" class="btn btn-dark log-button">Apagar Leilao</button> 
+}
+
 <button @onclick="AddToWishList" class="btn btn-dark log-button">Adicionar/Remover da Lista de Desejos</button>
+
+
 
 @code {
     [Parameter]
@@ -42,11 +51,13 @@
     private Timer timer;
     private string remainingTime;
 
-    protected override void OnInitialized()
+    private string usernameId = string.Empty;
+
+    protected override async void OnInitialized()
     {
         try
         {
-
+            usernameId = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
             CalculateRemainingTime(null);
             timer = new Timer(CalculateRemainingTime, null, 0, 1000);
 
@@ -106,6 +117,14 @@
         {
             await JSRuntime.InvokeVoidAsync("alert", "Dono do Leilao não pode desejar o próprio leilão!");
         }
+
+    }
+    public async void RemoveLeilao()
+    {
+
+        await ServicoProduto.RemoveLeilao(Leilao.CodLeilao);
+        await JSRuntime.InvokeVoidAsync("alert", "Leilao removido com sucesso!");
+        NavigationManager.NavigateTo("/");
 
     }
 }
