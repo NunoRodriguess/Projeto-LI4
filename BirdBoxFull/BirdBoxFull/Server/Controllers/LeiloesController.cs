@@ -33,14 +33,14 @@ namespace BirdBoxFull.Server.Controllers
             return Ok(await _productService.GetLeilao(codLeilao));
         }
 
-		[HttpGet("user/{Username}")]
-		public async Task<ActionResult<List<Leilao>>> GetLeilaobyUser(string Username)
-		{
+        [HttpGet("user/{Username}")]
+        public async Task<ActionResult<List<Leilao>>> GetLeilaobyUser(string Username)
+        {
 
-			return Ok(await _productService.GetLeilaoByUser(Username));
-		}
+            return Ok(await _productService.GetLeilaoByUser(Username));
+        }
 
-		[HttpPost("upload/image")] // Updated route
+        [HttpPost("upload/image")] // Updated route
         public async Task<ActionResult> UploadImages([FromBody] List<LeilaoImage> images)
         {
             try
@@ -59,18 +59,18 @@ namespace BirdBoxFull.Server.Controllers
         [HttpPost("regista")] // New action method to add a new auction
         public async Task<ActionResult> AddLeilao([FromBody] Leilao novoLeilao)
         {
-          
+
             try
             {
                 // Process the request and add the new auction to the database using the ProductService
                 await _productService.AddLeilao(novoLeilao);
-                
+
 
                 return Ok("Auction added successfully");
             }
             catch (Exception ex)
             {
-             
+
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
             }
         }
@@ -78,7 +78,7 @@ namespace BirdBoxFull.Server.Controllers
         [HttpPost("upload/relatorio/{codLeilao}")]
         public async Task<IActionResult> UploadRelatorio(string codLeilao, [FromForm] FileUploadDto fileUploadDto)
         {
-            
+
             if (fileUploadDto?.File != null && fileUploadDto.File.Length > 0)
             {
                 Console.WriteLine("Dentro do IF");
@@ -109,7 +109,28 @@ namespace BirdBoxFull.Server.Controllers
             }
         }
 
+        [HttpDelete("adminremove/{codLeilao}")]
+        public async Task<IActionResult> removeLeilao(string codLeilao)
+        {
+          
 
 
+            bool b = await _productService.RemoveLeilao(codLeilao);
+
+            if (b)
+            {
+                return Ok("Leilao Removido");
+            }
+            else
+            {
+                return BadRequest("ERRO");
+            }
+
+            
+
+
+        }
     }
 }
+
+

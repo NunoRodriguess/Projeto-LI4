@@ -3,6 +3,8 @@ using BirdBoxFull.Server.Data;
 using BirdBoxFull.Shared;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Xml.Linq;
 
 namespace BirdBoxFull.Server.Services.ServicoProduto
@@ -351,6 +353,51 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
          .ToListAsync();
 
             return list;
+        }
+
+        public async Task<bool> RemoveLeilao(string codLeilao)
+        {
+            Leilao l = await GetLeilao(codLeilao);
+
+            if (l.Estado.Equals("Terminado"))
+            {
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("A eliminar...");
+                List<WishList> listWish = await _context.WishLists
+                     .Where(w => w.LeilaoCodLeilao.Equals(codLeilao))
+                     .ToListAsync();
+
+                List<Licitacao> Licitacoes = await _licitacoes.ConsultarLicitacaoListLei(codLeilao);
+
+                List<LeilaoImage> filteredImages = await _context.LeilaoImages
+                       .Where(image => image.LeilaoCodLeilao.Equals(codLeilao))
+                       .ToListAsync();
+
+                foreach (Licitacao item in Licitacoes)
+                {
+                    _context.Licitacoes.Remove(item);
+                    
+                }
+                foreach (WishList item in listWish)
+                {
+                    _context.WishLists.Remove(item);
+
+                }
+                foreach (LeilaoImage item in filteredImages)
+                {
+                    _context.LeilaoImages.Remove(item);
+
+                }
+                _context.Leiloes.Remove(l);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+
+
+           
         }
     }
 }

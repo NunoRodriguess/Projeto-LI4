@@ -12,8 +12,8 @@
         
     </div>
     <div>
-        <FilterBarShort Title="Lista de Desejos"></FilterBarShort>
-        <DisplayWishList></DisplayWishList>
+        <FilterBarShort Title="Lista de Desejos" OnFilterChanged ="UpdateFilter" OnOrderChanged="UpdateOrder"></FilterBarShort>
+        <DisplayWishList AppliedFilters="@appliedFilters" CurrentOrder="@stateOrder"></DisplayWishList>
         
     </div>
 </div>
@@ -36,6 +36,20 @@
 
         // Call the base implementation
         await base.OnInitializedAsync();
+    }
+
+    private List<string> appliedFilters = new List<string>();
+
+    private bool stateOrder = true;
+
+    private void UpdateFilter(List<string> newFilters)
+    {
+        appliedFilters = newFilters;
+    }
+    private void UpdateOrder(bool b)
+    {
+        stateOrder = b;
+
     }
 
 }

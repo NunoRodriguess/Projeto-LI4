@@ -132,6 +132,10 @@ build_metadata.AdditionalFiles.CssScope = b-b3z9wzq13q
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcmRMZWlsYW8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jreb3r0fuu
 
+[D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/CardLeilaoAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcmRMZWlsYW9BZG1pbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-xktn6j10mb
+
 [D:/LI4VersaoComServer/BirdBoxFull/BirdBoxFull/Client/Shared/CreateAuction.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENyZWF0ZUF1Y3Rpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-r0u542v45z

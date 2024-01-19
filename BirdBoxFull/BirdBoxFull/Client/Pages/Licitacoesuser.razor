@@ -13,8 +13,8 @@
         
     </div>
     <div>
-        <FilterBarShort Title="Licitações Ativas"></FilterBarShort>
-        <DisplayLicitacoes></DisplayLicitacoes>
+        <FilterBarShort Title="Licitações Ativas" OnFilterChanged ="UpdateFilter" OnOrderChanged="UpdateOrder"></FilterBarShort>
+        <DisplayLicitacoes AppliedFilters="@appliedFilters" CurrentOrder="@stateOrder"></DisplayLicitacoes>
         
     </div>
 </div>
@@ -37,6 +37,20 @@
 
         // Call the base implementation
         await base.OnInitializedAsync();
+    }
+
+    private List<string> appliedFilters = new List<string>();
+
+    private bool stateOrder = true;
+
+    private void UpdateFilter(List<string> newFilters)
+    {
+        appliedFilters = newFilters;
+    }
+    private void UpdateOrder(bool b)
+    {
+        stateOrder = b;
+
     }
 
 }

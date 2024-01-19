@@ -47,6 +47,37 @@
         }
     }
 
+    [Parameter] public List<string> AppliedFilters { get; set; }
+
+    [Parameter] public bool CurrentOrder { get; set; }
+    // Helper method to get ordered Leiloes based on parameters
+    private async void GetOrderedLeiloes()
+    {
+
+
+        // Apply filtering based on applied filters
+        if (AppliedFilters != null && AppliedFilters.Any())
+        {
+            l = l.Where(leilao =>
+                AppliedFilters.All(filter => leilao.Leilao.Name.Contains(filter, StringComparison.OrdinalIgnoreCase))).ToList();
+        }
+        // Apply ordering based on the current order
+        // Apply ordering based on the current order
+        if (CurrentOrder)
+        {
+            l = l.OrderBy(product => product.Leilao.Name).ToList();
+        }
+        else
+        {
+            l = l.OrderBy(product => product.Leilao.DataFinal).ToList();
+        }
+
 
     }
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        GetOrderedLeiloes();
+    }
+}
 

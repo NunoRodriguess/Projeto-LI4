@@ -21,5 +21,6 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         Task<bool> AddLeilaoWishList(string Leilao, string username);
 
         Task<List<WishList>> GetLeilaoWishList(string username);
+		Task RemoveLeilao(string codLeilao);
     }
 }

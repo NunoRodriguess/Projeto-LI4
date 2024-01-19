@@ -3,6 +3,7 @@
 @inject NavigationManager NavigationManager
 @inject ILocalStorageService LocalStorage
 @inject IServicoUtilizador ServicoUtilizador
+@inject IJSRuntime JSRuntime
 
 
 <div class="navbar-logo"><a href=""><img src="logof.png" alt="Logo" /></a></div>
@@ -34,7 +35,7 @@
         Utilizador real = await ServicoUtilizador.GetUtilizador(user.Username, user.Password);
         if (real == null)
         {
-            Console.WriteLine("ERRO");
+            await JSRuntime.InvokeVoidAsync("alert", "Credenciais não coincidem com nenhum utilizador registado!");
             await LocalStorage.SetItemAsync<string>("username", string.Empty);
             await LocalStorage.SetItemAsync<string>("password", string.Empty);
             NavigationManager.NavigateTo("/registo");

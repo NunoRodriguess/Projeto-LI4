@@ -1,7 +1,7 @@
 ﻿@inject IServicoProduto ServicoProduto
 
 <div class="container-cards">
-    @foreach (var product in ServicoProduto.Leiloes)
+    @foreach (var product in aLista)
     {
         if (product.Estado.Equals("aDecorrer") && product.IsPublic)
         {
@@ -24,8 +24,63 @@
 </div>
 
 @code {
+    [Parameter] public List<string> AppliedFilters { get; set; }
+
+    [Parameter] public bool CurrentOrder { get; set; }
+
+    List<Leilao> aLista = new List<Leilao>();
+
     protected override async Task OnInitializedAsync()
     {
         await ServicoProduto.loadLeiloes();
+        aLista = ServicoProduto.Leiloes;
     }
+
+    // Helper method to get ordered Leiloes based on parameters
+    private IEnumerable<Leilao> GetOrderedLeiloes()
+    {
+        var leiloes = ServicoProduto.Leiloes
+            .Where(product => product.Estado.Equals("aDecorrer") && product.IsPublic);
+
+        // Apply filtering based on applied filters
+        if (AppliedFilters != null && AppliedFilters.Any())
+        {
+            leiloes = leiloes.Where(leilao =>
+                AppliedFilters.All(filter => leilao.Name.Contains(filter, StringComparison.OrdinalIgnoreCase)));
+        }
+        // Apply ordering based on the current order
+        // Apply ordering based on the current order
+        if (CurrentOrder)
+        {
+            leiloes = leiloes.OrderBy(product => product.Name);
+        }
+        else
+        {
+            leiloes = leiloes.OrderBy(product => product.DataFinal);
+        }
+        Console.WriteLine("Trocou");
+        aLista =leiloes.ToList();
+        return leiloes;
+    }
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        Console.WriteLine("Parameters set");
+        Console.WriteLine($"CurrentOrder: {CurrentOrder}");
+        Console.WriteLine($"Aplied Filters: {AppliedFilters}");
+        Console.WriteLine("Ordered Leiloes:");
+        PrintLeiloes(GetOrderedLeiloes());
+    }
+
+    // Helper method to print Leiloes for debugging
+    private void PrintLeiloes(IEnumerable<Leilao> leiloes)
+    {
+        foreach (var leilao in leiloes)
+        {
+            Console.WriteLine($"Name: {leilao.Name}, DataFinal: {leilao.DataFinal}");
+        }
+    }
+    
+
+    
 }

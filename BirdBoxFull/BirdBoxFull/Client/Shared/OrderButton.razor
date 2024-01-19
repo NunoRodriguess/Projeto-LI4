@@ -7,8 +7,8 @@
 </div>
 
 @code {
-      [Parameter] public EventCallback<Boolean> OnOrderChanged { get; set; }
-    private bool isOrderByAZ = false;
+    [Parameter] public EventCallback<Boolean> OnOrderChanged { get; set; }
+    private bool isOrderByAZ = true;
 
     private void ToggleOrder()
     {

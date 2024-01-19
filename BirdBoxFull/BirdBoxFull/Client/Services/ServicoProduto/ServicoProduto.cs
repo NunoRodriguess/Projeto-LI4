@@ -98,5 +98,23 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
         {
             return await _http.GetFromJsonAsync<List<WishList>>($"api/Leiloes/wishlistuser/{username}");
         }
+
+        public async Task RemoveLeilao(string codLeilao)
+        {
+            try
+            {
+                Console.WriteLine($"{codLeilao}");
+                var response = await _http.DeleteAsync($"api/Leiloes/adminremove/{codLeilao}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Error deleting Licitacao");
+                }
+            }
+            catch (HttpRequestException)
+            {
+                Console.WriteLine("Error deleting Licitacao");
+            }
+        }
     }
 }

@@ -27,15 +27,22 @@
 
     private List<string> appliedFilters = new List<string>();
 
-    private bool isOrderByAZ = false; // Initialize isOrderByAZ
+    private bool isOrderByAZ = true; // Initialize isOrderByAZ
+
+    [Parameter] public EventCallback<List<string>> OnFilterChanged { get; set; }
+
+    [Parameter] public EventCallback<bool> OnOrderChanged { get; set; }
 
     private void UpdateFilter(List<string> newFilterValue)
     {
-        appliedFilters = newFilterValue;
+        // Assuming you have some logic to determine the filters
+        List<string> newFilters = newFilterValue;
+        OnFilterChanged.InvokeAsync(newFilters);
     }
 
     private void ToggleOrder(bool newOrder)
     {
         isOrderByAZ = newOrder;
+        OnOrderChanged.InvokeAsync(newOrder);
     }
 }
