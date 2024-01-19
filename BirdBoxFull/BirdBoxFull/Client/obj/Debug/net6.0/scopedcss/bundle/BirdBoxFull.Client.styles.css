@@ -1,5 +1,6 @@
 @import '_content/Blazored.Toast/Blazored.Toast.bundle.scp.css';
 
+/* /Pages/AboutUs.razor.rz.scp.css */
 /* /Pages/LicitacoesAdmin.razor.rz.scp.css */
 body[b-mqmgixgond] {
 }
@@ -17,6 +18,28 @@ body[b-mqmgixgond] {
         margin-bottom: 0; /* Remove margin-bottom on larger screens */
     }
 }
+/* /Shared/ButaoFlutuante.razor.rz.scp.css */
+/* Floating Button Styles */
+.floating-button[b-xtebftmcyg] {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D9D9D9; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .floating-button:hover[b-xtebftmcyg] {
+        background-color: #808080; /* Button background color on hover */
+    }
 /* /Shared/Card.razor.rz.scp.css */
 .card[b-b3z9wzq13q] {
     display: flex;
