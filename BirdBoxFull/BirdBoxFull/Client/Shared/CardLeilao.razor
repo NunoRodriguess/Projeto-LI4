@@ -1,5 +1,7 @@
 ﻿@inherits Microsoft.AspNetCore.Components.ComponentBase
-
+@inject ILocalStorageService LocalStorage
+@inject IServicoProduto ServicoProduto
+@inject IJSRuntime JSRuntime
 <div class="card">
     <div class="row no-gutters">
         <div class="col-md-9">
@@ -31,6 +33,7 @@
         </div>
     </div>
 </div>
+<button @onclick="AddToWishList" class="btn btn-dark log-button">Adicionar/Remover da Lista de Desejos</button>
 
 @code {
     [Parameter]
@@ -88,5 +91,21 @@
     public void Dispose()
     {
         timer?.Dispose();
+    }
+
+    public async void AddToWishList()
+    {
+        string username = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
+        bool b = await ServicoProduto.AddLeilaoWishList(Leilao.CodLeilao,username);
+
+        if (b)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Alteração Realizada com Sucesso");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Dono do Leilao não pode desejar o próprio leilão!");
+        }
+
     }
 }

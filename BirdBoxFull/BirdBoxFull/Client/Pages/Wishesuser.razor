@@ -1,4 +1,7 @@
 @page "/userwishes"
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
+
 <PageTitle>Meu Perfil @userId</PageTitle>
 <MainLayout></MainLayout>
 <NavMenu></NavMenu>
@@ -10,6 +13,7 @@
     </div>
     <div>
         <FilterBarShort Title="Lista de Desejos"></FilterBarShort>
+        <DisplayWishList></DisplayWishList>
         
     </div>
 </div>
@@ -18,8 +22,21 @@
     [Parameter]
     public string userId { get; set; }
 
-    // You can use productId to fetch and display product details
-    // For instance, fetch product details based on productId from your data source
-}
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve userId from LocalStorage
+        userId = await LocalStorage.GetItemAsync<string>("username") ?? string.Empty;
 
+        if (string.IsNullOrEmpty(userId))
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+
+        Console.WriteLine(userId);
+
+        // Call the base implementation
+        await base.OnInitializedAsync();
+    }
+
+}
 

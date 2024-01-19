@@ -77,7 +77,26 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
             }
         }
 
+        public async Task<bool> AddLeilaoWishList(string Leilao, string username)
+        {
+            Console.WriteLine(Leilao);
 
+            // Send Leilao as JSON in the request body
+            var response = await _http.PostAsJsonAsync($"api/Leiloes/wish/{username}", Leilao);
+            
+            if (!response.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
+        public async Task<List<WishList>> GetLeilaoWishList(string username)
+        {
+            return await _http.GetFromJsonAsync<List<WishList>>($"api/Leiloes/wishlistuser/{username}");
+        }
     }
 }

@@ -6,19 +6,21 @@
 
 <h1>Descrição</h1>
 
-<h2>Descrição: @Leilao.Descricao</h2>
+<h2><strong>Descrição:</strong> @Leilao.Descricao</h2>
 @if (Leilao.Relatorio.Equals("nada"))
 {
-    <h3>Não Auntenticado</h3>
+        <h3>Não Auntenticado</h3>
 }
 else
 {
-    <button class="btn btn-dark log-button" @onclick="NavigateToUrl">Ver Relatório</button>
+        <button class="btn btn-dark log-button" @onclick="NavigateToUrl">Ver Relatório</button>
 }
 
 <EditForm Model="l" OnSubmit="HandleSubmition">
     <input class="form-control" id="oneValor" placeholder="Valor" @bind-value="l.valor">
-    <button type="submit" class="btn btn-dark log-button">Enviar Licitacao</button>
+    <div class="button-container">
+        <button type="submit" class="btn btn-dark log-button">Enviar Licitação</button>
+    </div>
 </EditForm>
 
 @code {

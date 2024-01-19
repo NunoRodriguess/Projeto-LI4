@@ -6,19 +6,17 @@
 
 
 <div class="navbar-logo"><a href=""><img src="logof.png" alt="Logo" /></a></div>
-<EditForm Model = "user" OnSubmit="HandleLogin">
-
-    <div class="form-group" >
-        <input  class="form-control" id="oneUsername" aria-describedby="usernameHelp" placeholder="Username:" @bind-value="user.Username">
+<EditForm Model="user" OnSubmit="HandleLogin">
+    <div class="form-group">
+        <input class="form-control" id="oneUsername" aria-describedby="usernameHelp" placeholder="Username:" @bind-value="user.Username">
     </div>
     <div class="form-group">
         <input type="password" class="form-control" id="onePassword" placeholder="Password:" @bind="user.Password">
     </div>
-    <div class="button-container"> <!-- Create a container for buttons -->
-        
+    <div class="button-container">
+        <button type="submit" class="btn btn-dark log-button">Login</button>
+        <button @onclick="GoToRegistration" class="btn btn-dark log-button">Fazer Registo</button>
     </div>
-<button type="submit" class="btn btn-dark log-button">Login</button>
-<button @onclick="GoToRegistration" class="btn btn-dark log-button">Fazer Registo</button>
 </EditForm>
 
 

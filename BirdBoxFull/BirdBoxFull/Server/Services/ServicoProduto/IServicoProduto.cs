@@ -15,5 +15,8 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
         Task UpdateLeilaoStateById(string codLeilao, string newState);
         Task ChooseWinningBid(string codLeilao);
         Task UpdateLeilaoRelatorio(string codLeilao, IFormFile file);
+        Task<bool> AddLeilaoWishList(Leilao leilao, string username);
+
+        Task<List<WishList>> GetLeilaoWishList(string username);
     }
 }

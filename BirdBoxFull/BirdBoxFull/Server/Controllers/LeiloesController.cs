@@ -21,6 +21,12 @@ namespace BirdBoxFull.Server.Controllers
             return Ok(await _productService.GetAllLeiloes());
         }
 
+        [HttpGet("wishlistuser/{Username}")]
+        public async Task<ActionResult<List<WishList>>> GetWishUser(string Username)
+        {
+            return Ok(await _productService.GetLeilaoWishList(Username));
+        }
+
         [HttpGet("{codLeilao}")]
         public async Task<ActionResult<Leilao>> GetLeilao(string codLeilao)
         {
@@ -72,7 +78,7 @@ namespace BirdBoxFull.Server.Controllers
         [HttpPost("upload/relatorio/{codLeilao}")]
         public async Task<IActionResult> UploadRelatorio(string codLeilao, [FromForm] FileUploadDto fileUploadDto)
         {
-            Console.WriteLine("Controlador de cenas");
+            
             if (fileUploadDto?.File != null && fileUploadDto.File.Length > 0)
             {
                 Console.WriteLine("Dentro do IF");
@@ -83,6 +89,26 @@ namespace BirdBoxFull.Server.Controllers
 
             return BadRequest("Invalid file.");
         }
+
+        [HttpPost("wish/{username}")]
+        public async Task<IActionResult> AddLeilaoWishList(string username, [FromBody] string Leilao)
+        {
+            Console.WriteLine("CHEGOU AQUI MEU");
+
+            // Now Leilao is expected in the request body as JSON
+            Leilao lei = await _productService.GetLeilao(Leilao);
+            bool b = await _productService.AddLeilaoWishList(lei, username);
+
+            if (b)
+            {
+                return Ok("Alteracao realizada");
+            }
+            else
+            {
+                return BadRequest("Dono do leilao nao pode adicionar como desejo");
+            }
+        }
+
 
 
     }

@@ -1702,3 +1702,5 @@ D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\build-gz\g
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayLeiloes.razor.rz.scp.css
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Pages\LicitacoesAdmin.razor.rz.scp.css
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayLicitacoesAdmin.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\ProfileAdmin.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\LicitacaoLeilao.razor.rz.scp.css

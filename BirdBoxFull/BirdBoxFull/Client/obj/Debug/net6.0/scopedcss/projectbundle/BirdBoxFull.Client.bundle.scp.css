@@ -1197,6 +1197,80 @@ body[b-dt5cfkha4e] {
         }
     }
 }
+/* /Shared/LicitacaoLeilao.razor.rz.scp.css */
+h1[b-2p4wbtvfyt], h2[b-2p4wbtvfyt], h3[b-2p4wbtvfyt] {
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+
+h1[b-2p4wbtvfyt] {
+    font-size: 5em;
+    margin-bottom: 7rem;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+h2[b-2p4wbtvfyt] {
+    font-size: 1.5em;
+    margin-bottom: 1.3em;
+    margin-right: 2rem;
+}
+
+h3[b-2p4wbtvfyt] {
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+    font-weight: bold;
+}
+
+
+.form-control[b-2p4wbtvfyt] {
+    width: 23rem;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    background-color: #F0F0F0;
+    margin-top: 5rem;
+    justify-content: center;
+}
+
+.btn-dark[b-2p4wbtvfyt] {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 18rem;
+    width: 10rem;
+}
+
+    .btn-dark:hover[b-2p4wbtvfyt] {
+        background-color: #555;
+    }
+
+.button-container[b-2p4wbtvfyt] {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* ajuste conforme necessário */
+}
+
+
+.log-button[b-2p4wbtvfyt] {
+    margin-top: 10px;
+}
+
+EditForm[b-2p4wbtvfyt] {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 /* /Shared/LicitacaoLeilaoAdmin.razor.rz.scp.css */
 body[b-4osud2gjz2] {
 }
@@ -1327,21 +1401,18 @@ body[b-4osud2gjz2] {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     margin-top: 12rem; /* Distance from the top */
-    
 }
 
-.navbar-logo img[b-2xz57jece3] {
-    width:30rem; 
-    height: auto; 
-}
+    .navbar-logo img[b-2xz57jece3] {
+        width: 30rem;
+        height: auto;
+    }
 
 form[b-2xz57jece3] {
     max-width: 50rem;
     margin: 0 auto;
     padding: 20px;
-    
     border-radius: 5px;
-    
 }
 
 .form-group[b-2xz57jece3] {
@@ -1360,6 +1431,8 @@ label[b-2xz57jece3] {
     border: 1px solid #ccc;
     background-color: rgba(217,217,217,0.5);
     height: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .log-button[b-2xz57jece3] {
@@ -1371,12 +1444,15 @@ label[b-2xz57jece3] {
     cursor: pointer;
     border-radius: 5rem;
     margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.log-button:hover[b-2xz57jece3] {
-    background-color: #333;
-    color: #fff;
-}
+    .log-button:hover[b-2xz57jece3] {
+        background-color: #333;
+        color: #fff;
+    }
+
 .form-flex[b-2xz57jece3] {
     display: flex;
     flex-direction: column; /* Stack items vertically */
@@ -1393,11 +1469,11 @@ label[b-2xz57jece3] {
     .navbar-logo[b-2xz57jece3] {
         margin-top: 5rem; /* Distance from the top */
     }
-    
-    .navbar-logo img[b-2xz57jece3] {
-        width:20rem; 
-    }
-    
+
+        .navbar-logo img[b-2xz57jece3] {
+            width: 20rem;
+        }
+
     .form-group[b-2xz57jece3] {
         margin-bottom: 1.4rem;
     }
@@ -1410,28 +1486,32 @@ label[b-2xz57jece3] {
         border: 1px solid #ccc;
         background-color: rgba(217,217,217,0.5);
         height: 2rem;
+        margin-left: auto;
+        margin-right: auto;
     }
-    
+
     .log-button[b-2xz57jece3] {
         width: 15rem;
         padding: 10px;
         font-size: 10px;
-
+        margin-left: auto;
+        margin-right: auto;
     }
-      
+
     .button-container[b-2xz57jece3] {
         margin-top: 1.5rem;
     }
 }
+
 @media (max-width: 485px) {
     .navbar-logo[b-2xz57jece3] {
         margin-top: 5rem; /* Distance from the top */
     }
-    
-    .navbar-logo img[b-2xz57jece3] {
-        width:20rem; 
-    }
-    
+
+        .navbar-logo img[b-2xz57jece3] {
+            width: 20rem;
+        }
+
     .form-group[b-2xz57jece3] {
         margin-bottom: 1.4rem;
     }
@@ -1444,28 +1524,32 @@ label[b-2xz57jece3] {
         border: 1px solid #ccc;
         background-color: rgba(217,217,217,0.5);
         height: 2rem;
+        margin-left: auto;
+        margin-right: auto;
     }
-    
+
     .log-button[b-2xz57jece3] {
         width: 15rem;
         padding: 10px;
         font-size: 14px;
-
+        margin-left: auto;
+        margin-right: auto;
     }
-      
+
     .button-container[b-2xz57jece3] {
         margin-top: 1.5rem;
     }
 }
+
 @media (max-width: 400px) {
     .navbar-logo[b-2xz57jece3] {
         margin-top: 4.5rem; /* Distance from the top */
     }
-    
-    .navbar-logo img[b-2xz57jece3] {
-        width:16rem; 
-    }
-    
+
+        .navbar-logo img[b-2xz57jece3] {
+            width: 16rem;
+        }
+
     .form-group[b-2xz57jece3] {
         margin-bottom: 1.1rem;
     }
@@ -1478,15 +1562,18 @@ label[b-2xz57jece3] {
         border: 1px solid #ccc;
         background-color: rgba(217,217,217,0.5);
         height: 2rem;
+        margin-left: auto;
+        margin-right: auto;
     }
-    
+
     .log-button[b-2xz57jece3] {
         width: 13rem;
         padding: 10px;
         font-size: 14px;
-
+        margin-left: auto;
+        margin-right: auto;
     }
-      
+
     .button-container[b-2xz57jece3] {
         margin-top: 1rem;
     }
@@ -1730,6 +1817,51 @@ label[b-2xz57jece3] {
 
 }
 
+/* /Shared/ProfileAdmin.razor.rz.scp.css */
+.form-control[b-hduz9l4nqa] {
+    width: 40rem;
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 5rem;
+    border: 1px solid #ccc;
+    background-color: rgba(217,217,217,0.5);
+    height: 2.3rem;
+    margin-right: 12rem;
+    margin-bottom: 1rem; /* Add margin between input boxes */
+}
+
+.info[b-hduz9l4nqa] {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.button-container[b-hduz9l4nqa] {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+
+.log-button[b-hduz9l4nqa] {
+    width: 15rem;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 13rem;
+}
+
+.containerImagem img[b-hduz9l4nqa] {
+    width: 8rem;
+}
+
+.containerImagem[b-hduz9l4nqa] {
+    margin-bottom: 2rem;
+    margin-left: 16rem;
+}
 /* /Shared/RegistUser.razor.rz.scp.css */
 .navbar-logo[b-lt1pe4jggy] {
     display: flex;

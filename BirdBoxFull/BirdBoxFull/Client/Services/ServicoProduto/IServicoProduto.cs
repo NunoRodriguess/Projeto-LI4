@@ -17,5 +17,9 @@ namespace BirdBoxFull.Client.Services.ServicoProduto
 		Task<List<Leilao>> GetLeilaoByUser(string Username);
 
 		Task UpdateLeilaoRelatorio(string codLeilao, string fileName, byte[] data);
+
+        Task<bool> AddLeilaoWishList(string Leilao, string username);
+
+        Task<List<WishList>> GetLeilaoWishList(string username);
     }
 }

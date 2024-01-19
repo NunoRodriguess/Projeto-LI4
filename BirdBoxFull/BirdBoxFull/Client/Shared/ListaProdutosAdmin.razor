@@ -3,10 +3,10 @@
 <div class="container-cards">
     @foreach (var product in ServicoProduto.Leiloes)
     {
-        
+       
                             <li class="card my-3">
                                 <div class="card-img-wrapper">
-                                    <a href="/produto/@product.CodLeilao">
+                                            <a href="/produtoadmin/@product.CodLeilao">
                                         <img class="card-img" src="@product.Images.ElementAt(0)" alt="@product.Name" />
                                     </a>
                                 </div>
@@ -28,3 +28,7 @@
         await ServicoProduto.loadLeiloes();
     }
 }
+
+
+
+                                   

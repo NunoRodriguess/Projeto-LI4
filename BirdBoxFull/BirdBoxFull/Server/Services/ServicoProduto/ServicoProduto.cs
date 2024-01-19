@@ -1,4 +1,5 @@
-﻿using BirdBoxFull.Server.Data;
+﻿using BirdBoxFull.Client.Shared;
+using BirdBoxFull.Server.Data;
 using BirdBoxFull.Shared;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -121,7 +122,10 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 _context.Entry(existingUtilizador).State = EntityState.Unchanged;
                 novoLeilao.Utilizador = existingUtilizador;
             }
-
+            if (novoLeilao.Estado.Equals("aValidar"))
+            {
+                _emailSenderService.SendDetails(existingUtilizador.email, "Bird Box:Onde enviar a sua peça");
+            }
             _context.Leiloes.Add(novoLeilao);
             await _context.SaveChangesAsync();
         }
@@ -302,10 +306,51 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 existingLeilao.Relatorio = $"{fileName}";
                 existingLeilao.DataFinal = DateTime.Now.AddDays(7) ;
                 existingLeilao.Estado = "aDecorrer";
+                existingLeilao.IsPublic = true;
                 // Save changes to the database
                 await _context.SaveChangesAsync();
             }
         }
 
+        public async Task<bool> AddLeilaoWishList(Leilao leilao, string username)
+        {
+            Console.WriteLine("Deu para vir ate aqui");
+            Utilizador existingUtilizador = await _context.Utilizadores.FindAsync(username);
+            if (leilao.UtilizadorUsername.Equals(username))
+            {
+                return false;
+            }
+            Console.WriteLine("Deu para vir ate aqui2");
+            WishList w = new WishList();
+            w.LeilaoCodLeilao = leilao.CodLeilao;
+            w.Leilao = await _context.Leiloes.FindAsync(leilao.CodLeilao);
+            w.UtilizadorUsername = username;
+            w.Utilizador = existingUtilizador;
+            Console.WriteLine("Deu para vir ate aqui3");
+            WishList t = await _context.WishLists.FirstOrDefaultAsync(p => p.UtilizadorUsername.Equals(username) && p.LeilaoCodLeilao.Equals(leilao.CodLeilao));
+            Console.WriteLine("Deu para vir ate aqui4");
+            if (t == null)
+            {
+                Console.WriteLine("Deu para vir ate aqui5");
+                _context.WishLists.Add(w);
+                
+            }
+            else
+            {
+                Console.WriteLine("Deu para vir ate aqui6");
+                _context.WishLists.Remove(t);
+                
+            }
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        public async Task<List<WishList>> GetLeilaoWishList(string username)
+        {
+          List<WishList> list = await _context.WishLists
+         .Where(w => w.UtilizadorUsername.Equals(username))
+         .ToListAsync();
+
+            return list;
+        }
     }
 }
