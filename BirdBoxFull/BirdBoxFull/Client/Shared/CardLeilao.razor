@@ -29,18 +29,19 @@
                         </div>
                         <p class="card-title">@Leilao.Name</p>
                         <p class="card-text">Entrada: @Leilao.EntryPrice €</p>
-                        <p class="card-text">Timer: @remainingTime</p>
+                        <p class="card-text">Tempo restante: @remainingTime</p>
+                        <h1 class="card-text-local">@Leilao.Location</h1>
                 }
             </div>
         </div>
     </div>
 </div>
+
+<button @onclick="AddToWishList" class="btn btn-dark wish-button">♡</button>
 @if (Leilao != null && Leilao.UtilizadorUsername != null && usernameId.Equals(Leilao.UtilizadorUsername))
 {
-        <button @onclick="RemoveLeilao" class="btn btn-dark log-button">Apagar Leilao</button> 
+            <button @onclick="RemoveLeilao" class="btn btn-dark log-button">Remover Leilão</button> 
 }
-
-<button @onclick="AddToWishList" class="btn btn-dark log-button">Adicionar/Remover da Lista de Desejos</button>
 
 
 
