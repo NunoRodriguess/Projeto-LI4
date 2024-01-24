@@ -7,10 +7,10 @@
 
 <EditForm Model = "l" OnSubmit="HandleSubmition">
     <div class="form-group">
-        <input type="categorias" class="form-categorias" id="oneCategoria" placeholder="Nome" @bind-value = "l.Name">
-        <input type="dataInicio" class="form-control" id="dataInicio" placeholder="Descricao"@bind-value = "l.Descricao">
-        <input type="valorMinimo" class="form-control" id="valorMinimo" placeholder="Valor Mínimo" @bind-value = "l.EntryPrice">
-        <input type="localizacao" class="form-control" id="localizacao" placeholder="Localização" @bind-value = "l.Location">
+        <input type="categorias" class="form-categorias" id="oneCategoria" placeholder="Nome" @bind-value = "l.Name" required>
+        <input type="dataInicio" class="form-control" id="dataInicio" placeholder="Descricao"@bind-value = "l.Descricao" required>
+        <input type="valorMinimo" class="form-control" id="valorMinimo" placeholder="Valor Mínimo" @bind-value = "l.EntryPrice" required>
+        <input type="localizacao" class="form-control" id="localizacao" placeholder="Localização" @bind-value = "l.Location" required>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="flexCheckIndeterminate" @bind-value ="PedirValidacao">
               <label class="form-check-label" for="flexCheckIndeterminate">
@@ -30,45 +30,44 @@
             l.IsPublic = true;
         }
         <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @onclick="() => HandleRadioClick(1)">
-              <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @onclick="() => HandleRadioClick(1)" required>
+            <label class="form-check-label" for="flexRadioDefault1">
                 1 Dia
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" @onclick="() => HandleRadioClick(3)" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" @onclick="() => HandleRadioClick(3)" required>
+            <label class="form-check-label" for="flexRadioDefault2">
                 3 Dias
-              </label>
-              </div>
-              <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" @onclick="() => HandleRadioClick(7)">
-              <label class="form-check-label" for="flexRadioDefault1">
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" @onclick="() => HandleRadioClick(7)" required>
+            <label class="form-check-label" for="flexRadioDefault3">
                 7 Dias
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" @onclick="() => HandleRadioClick(0.0833)">
-              <label class="form-check-label" for="flexRadioDefault2">
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" @onclick="() => HandleRadioClick(0.0833)" required>
+            <label class="form-check-label" for="flexRadioDefault4">
                 5 minutos
-              </label>
-            </div>
-</div>
-    
-     <div class="button-group">
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary">Submit</button>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fileUpload" class="custom-file-input">
+            Adicionar Media
+        </label>
+        <InputFile id="fileUpload" class="input-file" style="display: none;" OnChange="HandleFileChange" multiple accept="image/*" required />
+    </div>
+
+    <div class="button-group">
+        <button type="submit" class="btn btn-primary custom-file-input">Submeter</button>
     </div>
 </EditForm>
 
-<h3>Image Upload</h3>
 
-<InputFile OnChange="HandleFileChange" multiple accept="image/*" />
-
-@foreach (var image in imageUrls)
-{
-        <img src="@image" alt="Uploaded Image" />
-}
 
 @code {
 
@@ -118,6 +117,7 @@
                 l.DataFinal = DateTime.Now.AddMinutes(5);
                 break;
             default:
+                l.DataFinal = DateTime.Now.AddDays(3);
                 break;
         }
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JPMDuSw1O8V3u/bg6FJFEOMpS6Y/7I/ZT8jH0Rm0HA0=",
+  "Hash": "IEgrfWnZ2182bH15fADJrM7TWmD7HShT8CNjHJ+4rcc=",
   "Source": "BirdBoxFull.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7259,6 +7259,23 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\email.jpg",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "email.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\email.jpg"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\favicon.ico",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Discovered",
@@ -7344,6 +7361,23 @@
       "OriginalItemSpec": "wwwroot\\logof.png"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\mail.png",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "mail.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mail.png"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\menuLogo.png",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Discovered",
@@ -7361,6 +7395,40 @@
       "OriginalItemSpec": "wwwroot\\menuLogo.png"
     },
     {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\pin.jpg",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "pin.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pin.jpg"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\pin.png",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "pin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pin.png"
+    },
+    {
       "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\prof.png",
       "SourceId": "BirdBoxFull.Client",
       "SourceType": "Discovered",
@@ -7376,6 +7444,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\prof.png"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\telefone.jpg",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "telefone.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\telefone.jpg"
+    },
+    {
+      "Identity": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\telefone.png",
+      "SourceId": "BirdBoxFull.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "telefone.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\telefone.png"
     }
   ]
 }

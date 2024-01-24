@@ -1,7 +1,7 @@
 .filter-box {
     height: 8.5rem; 
     width: 63rem;
-    margin-bottom: 10rem; 
+    margin-bottom: 1rem; 
     padding: 10px; 
     overflow: hidden;
     margin-left: 0rem;
@@ -27,7 +27,6 @@
     .filter-box {
         height: 8rem; 
         width: 58rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
         margin-left: 0rem;
@@ -46,7 +45,6 @@
     .filter-box {
         height: 8rem; 
         width: 48rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
         margin-left: 0rem;
@@ -65,7 +63,6 @@
     .filter-box {
         height: 7rem; 
         width: 38rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
         margin-left: 0rem;
@@ -83,8 +80,7 @@
 @media (max-width: 850px) {
     .filter-box {
         height: 6rem; 
-        width: 32rem;
-        margin-bottom: 10rem; 
+        width: 36rem;
         padding: 10px; 
         overflow: hidden;
         margin-left: 0rem;
@@ -100,11 +96,10 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .filter-box {
         height: 5rem; 
-        width: 200rem;
-        margin-bottom: 10rem; 
+        width: 32rem;
         padding: 10px; 
         overflow: hidden;
     }
@@ -123,7 +118,6 @@
     .filter-box {
         height: 6rem; 
         width: 200rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
     }
@@ -142,7 +136,6 @@
     .filter-box {
         height: 6rem; 
         width: 30rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
     }
@@ -157,11 +150,10 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 425px) {
     .filter-box {
-        height: 6rem; 
+        height: 5rem; 
         width: 24rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
     }
@@ -177,9 +169,8 @@
 }
 @media (max-width: 375px) {
     .filter-box {
-        height: 6rem; 
+        height: 5rem; 
         width: 20rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
     }
@@ -188,7 +179,7 @@
         font-size: 0.8rem;
     }
     .date-text {
-        font-size: 0.4rem;
+        font-size: 0.5rem;
         margin-top: 0.6rem;
         margin-left: 1.6rem;
     }
@@ -198,7 +189,6 @@
     .filter-box {
         height: 6rem; 
         width: 18rem;
-        margin-bottom: 10rem; 
         padding: 10px; 
         overflow: hidden;
     }

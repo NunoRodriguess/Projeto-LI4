@@ -4,6 +4,7 @@
 @inject NavigationManager NavigationManager
 @inject ILocalStorageService LocalStorage
 @inject IServicoUtilizador ServicoUtilizador
+@inject IJSRuntime JSRuntime
 
 <div class="navbar-logo"><a href="login"><img src="logof.png" alt="Logo" /></a></div>
 <EditForm Model="newUtilizador" OnSubmit="HandleSubmit">
@@ -26,7 +27,7 @@
   </div>
   <div class="form-group">
     <input type="rua" class="form-control" id="oneRua" placeholder="Rua:" @bind-value="newUtilizador.rua">
-    <input type="n-porta" class="form-control" id="oneNacionalidade" placeholder="Nacionalidade:">
+    <input type="n-porta" class="form-control" id="oneNacionalidade" placeholder="Iban:">
   </div>
   <div class="form-group">
     <input type="n-porta" class="form-control" id="oneNporta" placeholder="NºPorta:" @bind-value="newUtilizador.numeroPorta">
@@ -46,46 +47,33 @@
 
     private async Task HandleSubmit()
     {
+        // Check if all form fields have data
+        if (string.IsNullOrWhiteSpace(newUtilizador.Username) ||
+            string.IsNullOrWhiteSpace(newUtilizador.Password) ||
+            // Add similar checks for other form fields as needed
+            string.IsNullOrWhiteSpace(newUtilizador.email) ||
+            string.IsNullOrWhiteSpace(newUtilizador.indicativo) ||
+            string.IsNullOrWhiteSpace(newUtilizador.numeroTelemovel) ||
+            string.IsNullOrWhiteSpace(newUtilizador.cc) ||
+            string.IsNullOrWhiteSpace(newUtilizador.Nome) ||
+            string.IsNullOrWhiteSpace(newUtilizador.rua) ||
+            string.IsNullOrWhiteSpace(newUtilizador.numeroPorta) ||
+            string.IsNullOrWhiteSpace(newUtilizador.localidade) ||
+            string.IsNullOrWhiteSpace(newUtilizador.codigoPostal))
+        {
+            await JSRuntime.InvokeVoidAsync("window.alert", "Por favor, preencha todos os campos.");
+            return;
+        }
         var response = await ServicoUtilizador.AddUtilizador(newUtilizador);
 
-        if (response != null && response != null)
+        if (response != null && response)
         {
             NavigationManager.NavigateTo("/login");
-            /*
-             * 
-
-            // Successfully registered, navigate to the provided URL
-            NavigationManager.NavigateTo(response);
-            string checkoutUrl = response;
-            // Attempt to parse the JSON and extract the URL
-            try
-            {
-                using (JsonDocument doc = JsonDocument.Parse(checkoutUrl))
-                {
-                    if (doc.RootElement.TryGetProperty("result", out JsonElement resultElement))
-                    {
-                        string extractedUrl = resultElement.GetString();
-                        Console.WriteLine("Extracted URL: " + extractedUrl);
-
-                        // Now you can navigate to the extracted URL
-                        NavigationManager.NavigateTo(extractedUrl);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Property 'result' not found in the JSON.");
-                    }
-                }
-            }
-            catch (JsonException ex)
-            {
-                Console.WriteLine("Error parsing JSON: " + ex.Message);
-            }
-            */
-
+           
         }
         else
         {
-            // Handle registration failure
+            await JSRuntime.InvokeVoidAsync("window.alert", "Utilizador já existente!");
             Console.WriteLine("ERROR");
         }
 

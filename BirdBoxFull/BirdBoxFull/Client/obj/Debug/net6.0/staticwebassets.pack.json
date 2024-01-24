@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
+      "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\email.jpg",
+      "PackagePath": "staticwebassets\\email.jpg"
+    },
+    {
       "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -81,12 +85,32 @@
       "PackagePath": "staticwebassets\\logof.png"
     },
     {
+      "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\mail.png",
+      "PackagePath": "staticwebassets\\mail.png"
+    },
+    {
       "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\menuLogo.png",
       "PackagePath": "staticwebassets\\menuLogo.png"
     },
     {
+      "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\pin.jpg",
+      "PackagePath": "staticwebassets\\pin.jpg"
+    },
+    {
+      "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\pin.png",
+      "PackagePath": "staticwebassets\\pin.png"
+    },
+    {
       "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\prof.png",
       "PackagePath": "staticwebassets\\prof.png"
+    },
+    {
+      "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\telefone.jpg",
+      "PackagePath": "staticwebassets\\telefone.jpg"
+    },
+    {
+      "Id": "D:\\LI4VersaoComServer\\BirdBoxFull\\BirdBoxFull\\Client\\wwwroot\\telefone.png",
+      "PackagePath": "staticwebassets\\telefone.png"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BirdBoxFull.Client.Microsoft.AspNetCore.StaticWebAssets.props",

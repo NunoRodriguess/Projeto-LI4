@@ -179,14 +179,18 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 {
                     await UpdateLeilaoState(item, "aProcessar");
                     List<Licitacao> licitacoes = await _licitacoes.ConsultarLicitacaoListLei(item.CodLeilao);
-                    Licitacao lMax = null;
+                    Licitacao? lMax = null;
 
                     foreach (Licitacao licitacao in licitacoes)
                     {
-                        if (licitacao.isWinner)
+                        if (licitacao.Estado.Equals("InValida"))
                         {
-                           await _licitacoes.AlterarEstado(licitacao.codLicitacao, "InValida");
                             continue;
+                        }
+                        if (licitacao.isWinner && licitacao.Equals("Valida"))
+                        {
+                            lMax = licitacao;
+                            break;
                         }
                         if (lMax == null)
                         {
@@ -210,6 +214,8 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                     {
                         Utilizador u = await _servicoUtilizador.GetUtilizadorAux(item.UtilizadorUsername);
                         _emailSenderService.SendAuctionEndedEmail(u.email, item.Name, false);
+                        await UpdateLeilaoState(item, "Terminado");
+                        Console.WriteLine("BOO UOU NINGUEM QUER ISTO");
                     }
                     else
                     {
@@ -240,14 +246,18 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
             {
                 await UpdateLeilaoState(item, "aProcessar");
                 List<Licitacao> licitacoes = await _licitacoes.ConsultarLicitacaoListLei(item.CodLeilao);
-                Licitacao lMax = null;
+                Licitacao? lMax = null;
 
                 foreach (Licitacao licitacao in licitacoes)
                 {
-                    if (licitacao.isWinner)
+                    if (licitacao.Estado.Equals("InValida"))
                     {
-                        await _licitacoes.AlterarEstado(licitacao.codLicitacao, "InValida");
                         continue;
+                    }
+                    if (licitacao.isWinner && licitacao.Equals("Valida"))
+                    {
+                        lMax = licitacao;
+                        break;
                     }
                     if (lMax == null)
                     {
@@ -269,8 +279,9 @@ namespace BirdBoxFull.Server.Services.ServicoProduto
                 }
                 if (lMax == null)
                 {
+                    Utilizador u = await _servicoUtilizador.GetUtilizadorAux(item.UtilizadorUsername);
+                    _emailSenderService.SendAuctionEndedEmail(u.email, item.Name, false);
                     await UpdateLeilaoState(item, "Terminado");
-                    // mandar email ao gajo
                 }
                 else
                 {

@@ -8,6 +8,34 @@
     margin-bottom: 2rem;
 }
 
+/* Style for the custom button */
+.custom-file-input[b-r0u542v45z] {
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #737171;
+    color: #fff;
+    width: 15rem;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5rem;
+    transition: background-color 0.3s;
+    display: inline-block;
+    text-align: center; /* Center the text */
+}
+
+    .custom-file-input:hover[b-r0u542v45z] {
+        background-color: #e2e6ea;
+    }
+
+/* Hide the default file input button */
+.input-file[b-r0u542v45z] {
+    display: none;
+    background-color: red;
+}
+
 .form-categorias[b-r0u542v45z] {
     width: 33rem;
     padding: 10px;

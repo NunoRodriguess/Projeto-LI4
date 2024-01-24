@@ -16,7 +16,14 @@
                                 <h4 class="mb-0">@product.Name</h4>
                             </a>
                             <p>Entrada: @product.EntryPrice €</p>
-                            <p>Tempo Restante: @product.Location</p>
+                    @if (remainingTimes.ContainsKey(product.CodLeilao))
+                    {
+                                    <p>Tempo Restante: @remainingTimes[product.CodLeilao]</p>
+                    }
+                    else
+                    {
+                                    <p>Tempo Restante: Loading...</p>
+                    }
                         </div>
                     </li>
         }
@@ -34,8 +41,38 @@
     {
         await ServicoProduto.loadLeiloes();
         aLista = ServicoProduto.Leiloes;
+        await auxMethod();
+
     }
 
+    private async Task auxMethod()
+    {
+        try
+        {
+            foreach (var leilao in aLista)
+            {
+                timers[leilao.CodLeilao] = new Timer(state => CalculateRemainingTime(leilao.CodLeilao, state), null, 0, 1000);
+
+                if (leilao.DataFinal > DateTime.Now)
+                {
+                    CalculateRemainingTime(leilao.CodLeilao, null);
+                }
+                else
+                {
+
+                    remainingTimes[leilao.CodLeilao] = "00:00:00";
+                }
+                Console.WriteLine(leilao.CodLeilao);
+            }
+          
+        }
+        catch (NullReferenceException e)
+        {
+           
+
+        }
+        
+    }
     // Helper method to get ordered Leiloes based on parameters
     private IEnumerable<Leilao> GetOrderedLeiloes()
     {
@@ -80,7 +117,49 @@
             Console.WriteLine($"Name: {leilao.Name}, DataFinal: {leilao.DataFinal}");
         }
     }
+
+    private Dictionary<string, Timer> timers = new Dictionary<string, Timer>();
+    private Dictionary<string, string> remainingTimes = new Dictionary<string, string>();
+
+    private void CalculateRemainingTime(string leilaoId, object state)
+    {
+        var leilao = aLista.FirstOrDefault(l => l.CodLeilao.Equals(leilaoId));
+        if (leilao != null)
+        {
+            TimeSpan timeRemaining = leilao.DataFinal - DateTime.Now;
+            if (timeRemaining.TotalSeconds > 0)
+            {
+                remainingTimes[leilao.CodLeilao] = $"{(int)timeRemaining.TotalHours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
+                StateHasChanged();
+            }
+            else
+            {
+                remainingTimes[leilao.CodLeilao] = "00:00:00";
+                timers[leilao.CodLeilao]?.Dispose(); // Dispose of the timer
+                StateHasChanged();
+            }
+        }
+    }
+    private void CleanupTimers()
+    {
+        foreach (var timer in timers.Values)
+        {
+            timer.Dispose();
+        }
+        timers.Clear();
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            // Cleanup timers when the component is first rendered
+            CleanupTimers();
+        }
+    }
+}
     
 
     
-}
