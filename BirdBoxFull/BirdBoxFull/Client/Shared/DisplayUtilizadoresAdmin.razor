@@ -4,20 +4,20 @@
 @inject NavigationManager NavigationManager
 
 
-<ul class="list-unstyled">
+<ul class="list-unstyled card-container">
 @foreach(Utilizador u in l)
 {
 
-                        <li class="media my-3">
-                            <div class="media-img-wrapper mr-2">
+                        <li class="card">
+                            <div class="card-img-wrapper">
                                      <a href="/adminperfil/@u.Username/@u.Password">
-                                       <img class="media-img" src="prof.png"/>
+                                       <img class="card-img" src="prof.png"/>
                                 </a>
                                     
 
                             </div>
-                            <div class="media-body">
-                                <h4 class="mb-0">@u.Username</h4>
+                            <div class="card-text">
+                                <h4>@u.Username</h4>
                                 <p>@u.Nome</p>
                                 <p>@u.email</p>
                                 <p>@u.numeroTelemovel</p>
