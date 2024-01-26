@@ -68,15 +68,16 @@ else
         else
         {
             // Display a confirmation dialog before proceeding
-            bool userConfirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Do you want to continue?");
+            bool userConfirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Deseja avançar com a licitação no valor de {novaLicitacao.valor} ?");
 
             if (userConfirmed)
             {
-                // Successful submission
+                
                 await ServicoLicitacao.AddLicitacao(novaLicitacao);
+                await JSRuntime.InvokeVoidAsync("alert", "Licitação Registada!");
                 NavigationManager.NavigateTo("/");
             }
-            // If the user chooses not to continue, you can add additional handling here if needed.
+            
         }
     }
 
