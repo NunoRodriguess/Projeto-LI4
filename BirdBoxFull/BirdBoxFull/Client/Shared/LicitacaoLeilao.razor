@@ -67,9 +67,16 @@ else
         }
         else
         {
-            // Successful submission
-            await ServicoLicitacao.AddLicitacao(novaLicitacao);
-            NavigationManager.NavigateTo("/");
+            // Display a confirmation dialog before proceeding
+            bool userConfirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Do you want to continue?");
+
+            if (userConfirmed)
+            {
+                // Successful submission
+                await ServicoLicitacao.AddLicitacao(novaLicitacao);
+                NavigationManager.NavigateTo("/");
+            }
+            // If the user chooses not to continue, you can add additional handling here if needed.
         }
     }
 

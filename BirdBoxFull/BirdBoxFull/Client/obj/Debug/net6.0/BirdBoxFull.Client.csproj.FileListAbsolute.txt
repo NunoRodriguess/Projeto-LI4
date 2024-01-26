@@ -1710,3 +1710,4 @@ D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayLicitacoes.razor.rz.scp.css
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayWishList.razor.rz.scp.css
 D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayEncomendas.razor.rz.scp.css
+D:\LI4VersaoComServer\BirdBoxFull\BirdBoxFull\Client\obj\Debug\net6.0\scopedcss\Shared\DisplayUtilizadoresAdmin.razor.rz.scp.css
